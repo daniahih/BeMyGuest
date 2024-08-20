@@ -9,7 +9,13 @@ const dummyData = [
     eventTitleAr: 'بار/بات ميتسفا',
     eventHour: '7 PM',
     eventImage: '../../public/eventImages/BarBatMitzvah.jpg',
-    imgStyle: {
+    eventImgStyle: {
+      backgroundPosition: 'center',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat',
+    },
+    backgroundImage: '../../public/eventImages/Bg-BarBatMitzvah.JPG',
+    backgroundImgStyle: {
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
       backgroundRepeat: 'no-repeat',
@@ -44,7 +50,13 @@ const dummyData = [
     eventTitleAr: 'روش هاشناه',
     eventHour: '6 PM',
     eventImage: '../../public/eventImages/RoshHashanah.JPG',
-    imgStyle: {
+    eventImgStyle: {
+      backgroundPosition: 'center',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat',
+    },
+    backgroundImage: '../../public/eventImages/Bg-RoshHashanah.JPG',
+    backgroundImgStyle: {
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
       backgroundRepeat: 'no-repeat',
@@ -77,8 +89,14 @@ const dummyData = [
     eventTitleHe: 'עיד אל-פיטר',
     eventTitleAr: 'عيد الفطر',
     eventHour: '8 AM',
-    eventImage: '../../public/eventImages/Eid-Al-Fitr.JPG',
-    imgStyle: {
+    eventImage: '../../public/eventImages//Bg-Eid-Al-Fitr.JPG',
+    eventImgStyle: {
+      backgroundPosition: 'center',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat',
+    },
+    backgroundImage: '../../public/eventImages/BarBatMitzvah.jpg',
+    backgroundImgStyle: {
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
       backgroundRepeat: 'no-repeat',
@@ -112,7 +130,13 @@ const dummyData = [
     eventTitleAr: 'عيد الأضحى',
     eventHour: '10 AM',
     eventImage: '../../public/eventImages/Eid-al-Adha.jpg',
-    imgStyle: {
+    eventImgStyle: {
+      backgroundPosition: 'center',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat',
+    },
+    backgroundImage: '../../public/eventImages/Bg-Eid-al-Adha.JPG',
+    backgroundImgStyle: {
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
       backgroundRepeat: 'no-repeat',
@@ -146,7 +170,13 @@ const dummyData = [
     eventTitleAr: 'زفاف',
     eventHour: '6 PM',
     eventImage: '../../public/eventImages/Wedding.jpg',
-    imgStyle: {
+    eventImgStyle: {
+      backgroundPosition: 'center',
+      backgroundSize: '100% 100%',
+      backgroundRepeat: 'no-repeat',
+    },
+    backgroundImage: '../../public/eventImages/Bg-Wedding.JPG',
+    backgroundImgStyle: {
       backgroundPosition: 'center',
       backgroundSize: '100% 100%',
       backgroundRepeat: 'no-repeat',
