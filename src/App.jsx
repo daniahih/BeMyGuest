@@ -6,6 +6,8 @@ import EventList from './Components/LoginForm/EventList'
 import CreateEvent from './CreateEvent/CreateEvent'
 import Navbar from './Components/Navbar/Navbar'
 import "./App.css";
+import AboutUs from './pages/AboutUs'
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
         {/* <Route path="/addMacbook" element={<AddMacbook />} /> */}
         <Route path="/n" element={<Navbar />} />
         <Route path="/create-event" element={<CreateEvent />} />
+        <Route path='AboutUs' element={<AboutUs/>}/>
       </Routes>
     </Router>
   );
