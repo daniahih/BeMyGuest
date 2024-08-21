@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-// import "../LoginForm/LoginForm.css";
+// import '../LoginForm/LoginForm.css'
 // import { useState, useEffect } from "react";
-import coverImg from "../../../src/assets/images/coverImg.jpg";
-import googleIcon from "../../../src/assets/images/googleIcon.png";
-import { Input } from "../Input";
-import { useGlobalContext } from "../../Context";
-import "../../firebase_setup/firebase.js";
-import firebase from "firebase/compat/app";
-import EventList from "./EventList.jsx";
+import coverImg from '../../../src/assets/images/coverImg.jpg'
+import googleIcon from '../../../src/assets/images/googleIcon.png'
+import { Input } from '../Input'
+import { useGlobalContext } from '../../Context'
+import '../../firebase_setup/firebase.js'
+import firebase from 'firebase/compat/app'
+import EventList from './EventList.jsx'
 
 export const LoginForm = ({
   action,
@@ -110,13 +110,12 @@ export const LoginForm = ({
 
               <div className="w-full flex items-center justify-center">
                 <p className="text-sm font-normal text-[#060606]">
-                  Dont have an account?{" "}
+                  Dont have an account?{' '}
                   <span className="font-semibold underline underline-offset-2 cursor-pointer">
                     Sign up for free
                   </span>
                 </p>
               </div>
-
             </div>
           </div>
 

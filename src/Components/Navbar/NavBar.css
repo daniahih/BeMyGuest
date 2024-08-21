@@ -4,15 +4,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 10rem;
   background-color: #333;
   color: #fff;
+  height: 6rem;
 }
 
 .navbar-logo a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -24,13 +25,13 @@
 }
 
 .navbar-links li {
-  margin-left: 20px;
+  margin-left: 7rem;
 }
 
 .navbar-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .navbar-links a:hover {
