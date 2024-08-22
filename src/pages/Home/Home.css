@@ -32,5 +32,6 @@ body {
 }
 .h1 {
   text-align: center;
+  border-radius: ;
   background-image: url('/public/heroSectionImg/BBQ\ Cheers.jpg');
 }

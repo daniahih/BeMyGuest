@@ -1,6 +1,6 @@
 import React from 'react'
 import CarouselHeroSectionEventCard from '../../Components/CarouselHeroSectionEventCard/CarouselHeroSectionEventCard.jsx'
-import HeroSectionEventCard from '../../Components/HeroSectionEventCard/HeroSectionEventCard.jsx'
+// import HeroSectionEventCard from '../../Components/HeroSectionEventCard/HeroSectionEventCard.jsx'
 import { EffectFade, Navigation, Pagination } from 'swiper/modules'
 import {
   AppContainer,
@@ -11,6 +11,7 @@ import {
   HeroSectionEventCardContainer,
   StyledSwiper,
   SwiperSlideContainer,
+  HeroSectionEventCard,
   Button,
 } from '../../Components/styles/HomeStyles.js'
 
