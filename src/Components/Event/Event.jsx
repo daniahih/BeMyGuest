@@ -1,6 +1,51 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import dummyData from "../../Data/dummyData";
 import { ThemeProvider } from "styled-components";
+
+// Keyframe animations for the effects
+const popIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+`;
+
+const slideIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(4em, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+`;
+
+const slideLeft = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(-40px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+`;
+
+const slideUp = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(3em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 // Container styling
 export const Container = styled.div`
@@ -30,16 +75,23 @@ const EventCard = styled.div`
   flex-direction: row;
   align-items: stretch;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+
+  /* Add animations */
+  animation: ${popIn} 0.7s cubic-bezier(0.26, 0.53, 0.74, 1.48) backwards;
 
   .event-card-content {
     flex: 1;
     padding-right: 10px;
+    animation: ${slideIn} 0.7s cubic-bezier(0.26, 0.53, 0.74, 1.48) backwards;
   }
 
   .event-title {
     font-size: 1.2rem;
     margin-bottom: 5px;
     color: ${({ theme }) => theme.colors.textPrimary};
+    animation: ${slideLeft} 0.7s cubic-bezier(0.26, 0.53, 0.74, 1.48) backwards;
   }
 
   .event-category,
@@ -50,14 +102,15 @@ const EventCard = styled.div`
     margin: 5px 0;
     color: ${({ theme }) => theme.colors.textSecondary};
     display: flex;
-    align-items: center; /* Align icon and text in the same line */
+    align-items: center;
+    animation: ${slideUp} 0.7s cubic-bezier(0.26, 0.53, 0.74, 1.48) backwards;
   }
 
   .event-category img,
   .event-place img,
   .event-hour img,
   .event-date img {
-    margin-right: 8px; /* Space between the icon and the text */
+    margin-right: 8px;
     width: 20px;
     height: 20px;
   }
@@ -67,6 +120,7 @@ const EventCard = styled.div`
     padding-left: 20px;
     color: ${({ theme }) => theme.colors.textPrimary};
     font-size: 0.85rem;
+    animation: ${slideIn} 0.7s cubic-bezier(0.26, 0.53, 0.74, 1.48) backwards;
   }
 
   .button {
@@ -74,6 +128,12 @@ const EventCard = styled.div`
     width: 150px;
     color: ${({ theme }) => theme.colors.card};
     background-color: ${({ theme }) => theme.colors.dark};
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .button:hover {
+    background-color: ${({ theme }) => theme.colors.primary};
   }
 `;
 
@@ -87,6 +147,11 @@ const EventImageContainer = styled.div`
     border-radius: 0 8px 8px 0;
     object-fit: cover;
     margin: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  ${EventCard}:hover & img {
+    transform: scale(1.05);
   }
 `;
 
@@ -114,6 +179,7 @@ export default function Event() {
               <div className="event-card-content">
                 <h3 className="event-title">{event.eventTitleEn}</h3>
                 <p className="event-category">
+                  <img src="../../../public/eventImages/gps.png" alt="" />
                   {event.eventNameCategoryEn}
                 </p>
                 <p className="event-place">
