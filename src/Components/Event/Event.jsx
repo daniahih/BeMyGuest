@@ -179,7 +179,6 @@ export default function Event() {
               <div className="event-card-content">
                 <h3 className="event-title">{event.eventTitleEn}</h3>
                 <p className="event-category">
-                  <img src="../../../public/eventImages/gps.png" alt="" />
                   {event.eventNameCategoryEn}
                 </p>
                 <p className="event-place">
