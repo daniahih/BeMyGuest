@@ -22,32 +22,6 @@ function Register() {
   const [lname, setLname] = useState("");
   const navigate = useNavigate(); // Hook to programmatically navigate
 
-  // const handleRegister = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await createUserWithEmailAndPassword(auth, email, password);
-  //     const user = auth.currentUser;
-  //     console.log(user);
-  //     if (user) {
-  //       await setDoc(doc(db, "Users", user.uid), {
-  //         email: user.email,
-  //         firstName: fname,
-  //         lastName: lname,
-  //       });
-  //     }
-  //     toast.success("User registered successfully!!", {
-  //       position: "top-center",
-  //     });
-  //     console.log("User registered successfully");
-  //     navigate("/loginPage"); // Navigate to the login page after registration
-  //   } catch (error) {
-  //     console.log(error.message);
-  //     toast.error(error.message, {
-  //       position: "top-center",
-  //     });
-  //   }
-  // };
-
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
@@ -59,21 +33,22 @@ function Register() {
           email: user.email,
           firstName: fname,
           lastName: lname,
-          photo: "",
         });
       }
-      console.log("User Registered Successfully!!");
-      toast.success("User Registered Successfully!!", {
+      toast.success("User registered successfully!!", {
         position: "top-center",
       });
-      navigate("/loginPage");
+      console.log("User registered successfully");
+      navigate("/loginPage"); // Navigate to the login page after registration
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {
-        position: "bottom-center",
+        position: "top-center",
       });
     }
   };
+
+
 
   return (
     <Container>
