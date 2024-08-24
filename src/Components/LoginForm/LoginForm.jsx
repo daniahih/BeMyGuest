@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../../firebase_setup/firebase";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import {
   Container,
   Form,
@@ -16,16 +17,17 @@ import {
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Create navigate function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in Successfully");
-      window.location.href = "/home";
       toast.success("User logged in Successfully", {
         position: "top-center",
       });
+      navigate("/"); // Redirect to home page
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {
@@ -60,7 +62,7 @@ function LoginForm() {
         </FormGroup>
 
         <FormGroup>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Submit</Button> 
         </FormGroup>
         <ForgotPassword>
           New user? <a href="/register">Register Here</a>
