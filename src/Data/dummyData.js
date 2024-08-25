@@ -92,7 +92,7 @@ const dummyData = [
     eventTitleAr: "عيد الفطر",
     eventHour: "8 AM",
     eventDate: "2024-04-10",
-    eventImage: "../../public/eventImages/Bg-Eid-Al-Fitr.JPG",
+    eventImage: "../../public/eventImages/Eid-Al-Fitr.JPG",
     eventImgStyle: {
       backgroundPosition: "center",
       backgroundSize: "100% 100%",
