@@ -1,44 +1,54 @@
-import styled, { createGlobalStyle } from 'styled-components'
-import { Swiper } from 'swiper/react'
+import styled, { createGlobalStyle } from "styled-components";
+import { Swiper } from "swiper/react";
 
 export const AppContainer = styled.div`
-  min-width: 100%;
-  height: 89.5vh;
-  overflow: scroll;
-  overflow-x: hidden;
-  border: solid 2px #e2e1e1;
   display: flex;
   flex-direction: column;
-`
+  align-items: center;
+  justify-content: center;
+`;
 
 export const GlobalStyle = createGlobalStyle`
-  html, body {
-    position: relative;
-    height: 100%;
-  }
-
   body {
-    background: #eee;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
   }
-`
+`;
 
+// export const HeroSection = styled.section`
+//   // text-align: center;
+//   // padding: 20px;
+//   // width: 100%;
+//   // max-width: 1200px;
+//   // margin: 0 auto;
+//   // background-image: url("https://www.moroccoworldnews.com/wp-content/uploads/2024/04/dutch-muslims-to-celebrate-eid-al-fitr-on-april-10-800x450.jpeg"); /* Replace with your image URL */
+//   // background-size: cover;
+//   // background-position: center;
+//   // position: relative;
+//   // height: 500px; /* Adjust this as needed */
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+//   // color: white; /* Adjust text color to contrast with the background */
+//   background-image: url("/public/heroSectionImg/BBQ-Cheers-opacity2.png");
+//   background-size: 100% 100%;
+//   background-position: center;
+//   background-repeat: no-repeat;
+// `;
 export const HeroSection = styled.section`
   min-width: 100%;
   height: 89.5vh;
   padding: 6rem 0;
   margin: 0 auto;
-  background-image: url('/public/heroSectionImg/BBQ-Cheers-opacity2.png');
+  background-image: url("/public/heroSectionImg/BBQ-Cheers-opacity2.png");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-
   h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3rem;
     font-weight: 500;
     text-align: center;
@@ -46,111 +56,67 @@ export const HeroSection = styled.section`
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
   }
-
   h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 5rem;
     font-weight: 500;
     text-align: center;
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
   }
-`
-
-export const StyledSwiper = styled(Swiper)`
-  width: 50%;
-  height: 45%;
-  border: solid 2px white;
-  top: 8rem;
-  margin: 2rem auto;
-`
-
-export const HeroSectionEventCard = styled.div`
-  width: 40%;
-  height: 30vh;
-  border: solid 2px grey;
-  top: 8rem;
-  margin: 2rem auto;
-`
-
-export const SwiperSlideContainer = styled.div`
-  background-position: center;
-  background-size: cover;
-  width: 40vw;
-  height: 30vh;
-  margin: 2rem auto;
-
-  img {
-    display: block;
-    width: 10vw;
-    height: 20vh;
-    margin: auto;
-  }
-`
-
+`;
 export const MidSection = styled.section`
+  text-align: center;
+  padding: 20px;
   width: 100%;
-  height: 25vh;
-  margin: 0 auto;
-  background-color: #ffff;
-
-  h4 {
-    color: rgba(1, 5, 1, 67);
-    height: 24vh;
-    padding-top: 2.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.8rem;
-    font-weight: 00;
-    text-align: center;
-    border: 2px solid black;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-left-color: transparent;
-    // text-shadow: 2px 2px 4px rgba(1, 5, 1, 67);
-  }
-`
+`;
 
 export const ThirdSection = styled.section`
-  width: 100%;
-  height: 25vh;
-  background-color: #e2e1e1;
-  padding: 1rem 0;
-  margin: 0 auto;
-  font-size: 1.5rem;
   text-align: center;
-  border: 2px solid black;
-  border-right-color: transparent;
-  border-left-color: transparent;
-
-  h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 4rem;
-    text-align: center;
-  }
-
-  h6 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-`
-
-export const HeroSectionEventCardContainer = styled.section`
+  padding: 20px;
   width: 100%;
-  height: 180vh;
-  padding: 2rem 0;
-  margin: 2rem auto;
-  background-color: #e2e1e1;
+`;
+
+export const HeroSectionEventCardContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+export const StyledSwiper = styled(Swiper)`
+  width: 100%;
+  max-width: 1000px; /* Set max width for the Swiper */
+  height: 300px; /* Adjust the height as needed */
   position: absolute;
-`
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-export const Button = styled.section`
-  width: 8vw;
-  height: 4vh;
-  border-radius: 1rem;
-  border: solid 2px grey;
-  padding-top: 0.4rem;
-  margin: 100rem auto 0;
-  font-size: 1rem;
-  text-align: center;
-`
+  .swiper-pagination-bullet {
+    background: #000;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+export const Button = styled.button`
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #444;
+  }
+`;
