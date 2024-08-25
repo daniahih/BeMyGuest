@@ -2,40 +2,82 @@
 
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10rem;
-  background-color: #333;
+  justify-content: center;
+  align-items: end;
+  padding: 10px 10px;
+  background-color: #c7c7c7;
+  /*background-image: url('/public/heroSectionImg/BBQ-Cheers-opacity2.png');
+  background-size: 100px;
+  background-position: center;
+  background-repeat: no-repeat;*/
   color: #fff;
+  text-shadow: 3px 5px 12px rgba(1, 5, 1, 68);
   height: 6rem;
 }
 
-.navbar-logo a {
-  color: #fff;
+/*.navbar-logo {
+   color: #fff;
   text-decoration: none;
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: bold;  
+  background-image: url('/public/logo9-removebg-preview.png');
+  width: 14vw;  
+  height: 11vh;  
+  left: 0;
+  top: 2px;
+
+  background-size: contain;  
+  background-repeat: no-repeat;  
+  background-position: center center;
+
+  position: absolute;
+}*/
+.logo-image {
+  /* color: #fff;
+  text-decoration: none;
+  font-size: 2.5rem;
+  font-weight: bold; */
+  /* background-image: url('/public/logo9-removebg-preview.png'); */
+  width: 9vw; /* Adjust the width as needed */
+  height: 12vh; /* Adjust the height as needed */
+  left: 5rem;
+  top: 2px;
+
+  background-size: contain; /* Ensures the logo fits within the container */
+  background-repeat: no-repeat; /* Prevents the logo from repeating */
+  background-position: center center;
+
+  position: absolute;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.logo-image :hover {
+  transform: scale(1.2);
 }
 
 .navbar-links {
   list-style: none;
   display: flex;
-  margin: 0;
+
   padding: 0;
+  width: 50vw;
+  margin-bottom: 1.5rem;
 }
 
 .navbar-links li {
-  margin-left: 7rem;
+  margin-left: 10rem;
 }
 
 .navbar-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .navbar-links a:hover {
-  color: #ddd;
+  transform: scale(1.2);
 }
 
 @media (max-width: 768px) {

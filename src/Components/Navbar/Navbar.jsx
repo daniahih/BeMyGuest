@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
-import "./NavBar.css";
+import { Link } from 'react-router-dom'
+import './NavBar.css'
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">MyLogo</Link>
+        <Link to="/">
+          {' '}
+          <img
+            src="/public/logo14-removebg-preview.png"
+            alt="Logo"
+            className="logo-image"
+          />
+        </Link>
       </div>
       <ul className="navbar-links">
         <li>
@@ -22,7 +29,7 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
