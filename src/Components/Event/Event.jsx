@@ -49,8 +49,8 @@ const slideUp = keyframes`
 
 // Container styling
 export const Container = styled.div`
-  width: 1000px;
-  max-width: 100%;
+  width: 1300px;
+
   padding: 0 20px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.card};
@@ -140,9 +140,9 @@ const EventCard = styled.div`
 // Event image styling
 const EventImageContainer = styled.div`
   flex-shrink: 0;
-  width: 120px;
+  width: 200px;
   img {
-    width: 100%;
+    width: 200px;
     height: 100%;
     border-radius: 0 8px 8px 0;
     object-fit: cover;
