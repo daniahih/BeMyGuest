@@ -1,11 +1,9 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-
 import AllEvent from './pages/AllEvent/AllEvent'
 import About from './pages/About/About'
 import Home from './pages/Home/Home'
 import Layout from './Components/Layout'
-// import LoginForm from './Components/LoginForm/LoginForm'
 
 const router = createBrowserRouter([
   {

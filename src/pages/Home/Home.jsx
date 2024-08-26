@@ -1,21 +1,30 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import CarouselHeroSectionEventCard from "../../Components/CarouselHeroSectionEventCard/CarouselHeroSectionEventCard.jsx";
+import React from 'react'
+import { SwiperSlide } from 'swiper/react'
+import { EffectFade, Navigation, Pagination } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import dummyData from '../../Data/dummyData.js'
+
 import {
   AppContainer,
   GlobalStyle,
   HeroSection,
   MidSection,
   ThirdSection,
-  HeroSectionEventCardContainer,
+  UpcomingEventsContainers,
+  UpcomingEvent,
   StyledSwiper,
-  Button,
-} from "../../Components/styles/HomeStyles.js";
+  SlideContent,
+  TextContent,
+  ImageContent,
+  EventDetails,
+  ButtonGroup,
+  StyledImg,
+  StyledButton,
+} from '../../Components/styles/HomeStyles.js'
 
 export default function Home() {
   return (
@@ -26,37 +35,60 @@ export default function Home() {
         <h1>June 27th - July 4th</h1>
 
         <StyledSwiper
-          spaceBetween={30}
-          effect={"fade"}
-          navigation={true}
+          slidesPerView={1}
+          loop={true}
           pagination={{ clickable: true }}
+          effect="fade"
+          navigation={true}
           modules={[EffectFade, Navigation, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
-              alt="Slide 1"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-              alt="Slide 2"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-3.jpg"
-              alt="Slide 3"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img
-              src="https://swiperjs.com/demos/images/nature-4.jpg"
-              alt="Slide 4"
-            />
-          </SwiperSlide>
+          {dummyData.map((event) => (
+            <SwiperSlide key={event.id}>
+              <SlideContent>
+                <TextContent>
+                  <h3>{event.eventNameCategoryEn}</h3>
+                  <h2>{event.eventTitleEn}</h2>
+                  <EventDetails>
+                    <span>
+                      <img
+                        src="../../../public/eventImages/gps.png"
+                        alt="icon-Place"
+                      />
+                      {event.eventPlaceEn}
+                    </span>
+                    <span>
+                      <img
+                        src="../../../public/eventImages/calendar.png"
+                        alt="icon-Date"
+                      />
+                      {event.eventDate}
+                    </span>
+                    <span>
+                      <img
+                        src="../../../public/eventImages/time-left.png"
+                        alt="icon-time"
+                      />
+                      {event.eventHour}
+                    </span>
+                  </EventDetails>
+                  <ButtonGroup>
+                    <StyledButton className="primary">Join Event</StyledButton>
+                    <StyledButton className="secondary">
+                      More details
+                    </StyledButton>
+                  </ButtonGroup>
+                </TextContent>
+                <ImageContent>
+                  <StyledImg
+                    src={event.eventImage}
+                    alt={event.eventTitleEn}
+                    style={event.eventImgStyle}
+                  />
+                </ImageContent>
+              </SlideContent>
+            </SwiperSlide>
+          ))}
         </StyledSwiper>
       </HeroSection>
 
@@ -75,15 +107,15 @@ export default function Home() {
           You are free to choose from the Event list
           <br /> The event that draws you in to discover, explore, and engage.
         </h6>
-        <HeroSectionEventCardContainer>
-          <CarouselHeroSectionEventCard />
-          <CarouselHeroSectionEventCard />
-          <CarouselHeroSectionEventCard />
-          <CarouselHeroSectionEventCard />
-          <CarouselHeroSectionEventCard />
-        </HeroSectionEventCardContainer>
+        <UpcomingEventsContainers>
+          <UpcomingEvent />
+          <UpcomingEvent />
+          <UpcomingEvent />
+          <UpcomingEvent />
+          <UpcomingEvent />
+        </UpcomingEventsContainers>
       </ThirdSection>
-      <Button>View More Events</Button>
+      <StyledButton className="third">View More Events</StyledButton>
     </AppContainer>
-  );
+  )
 }
