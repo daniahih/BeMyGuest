@@ -78,8 +78,8 @@ export const ThirdSection = styled.section`
   text-align: center;
   padding: 20px;
   width: 100%;
-
-  height: 25vh;
+  //height: auto; /* Changed from fixed height */
+  min-height: 25vh;
   background-color: #e2e1e1;
   padding: 1rem 0;
   margin: 0 auto;
@@ -291,22 +291,108 @@ export const StyledSwiper = styled(Swiper)`
 `
 
 export const UpcomingEvent = styled.div`
-  margin-top: 9rem;
+  // height: auto; /* Ensures the height adjusts to content */
+  // padding: 1rem;
+  // display: flex;
+  // align-items: center;
+  // justify-content: space-between;
+  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
   background-color: white;
   width: 100%;
-  max-width: 62.5rem;
-  height: 21rem;
-  position: relative;
-  z-index: 1;
+  height: 250px; /* Set a fixed height for all cards */
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 `
+
+export const EventInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  width: 60%;
+  padding-right: 1rem;
+
+  h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 0.5rem;
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+  .event-description {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.4;
+    height: 4rem; /* Adjust height as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .view-details-button {
+    position: absolute;
+    margin-left: 26rem;
+    margin-top: -2rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    background-color: #7b3f00; /* Example color */
+    width: 120px;
+    height: auto;
+    text-align: center;
+  }
+
+  .view-details-button:hover {
+    background-color: #5a2e00;
+  }
+`
+
+export const EventImage = styled.div`
+  width: 35%;
+  img {
+    width: 100%;
+    height: 100%; /* Ensure image fills the height */
+    object-fit: cover; /* Maintains aspect ratio */
+    border-radius: 8px;
+  }
+`
+
 export const UpcomingEventsContainers = styled.div`
-  margin-top: 9rem;
-  background-color: white;
+  display: flex;
+  flex-direction: column; /* Ensures that the events are stacked vertically */
+  gap: 2rem; /* Adds space between the events */
   width: 100%;
   max-width: 62.5rem;
-  height: 21rem;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-`
+  padding: 1rem;
+
+
+display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the cards horizontally */
+  justify-content: center; /* Centers the cards vertically (if necessary) */
+  width: 100%;
+  max-width: 62.5rem;
+  padding: 1rem;
+  gap: 2rem; /* Adds space between the cards */
+  margin: 0 auto; /* Centers the container itself `
