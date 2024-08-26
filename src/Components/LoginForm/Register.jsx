@@ -18,8 +18,7 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+
   const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleRegister = async (e) => {
@@ -28,13 +27,7 @@ function Register() {
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       console.log(user);
-      if (user) {
-        await setDoc(doc(db, "Users", user.uid), {
-          email: user.email,
-          firstName: fname,
-          lastName: lname,
-        });
-      }
+
       toast.success("User registered successfully!!", {
         position: "top-center",
       });
@@ -42,13 +35,12 @@ function Register() {
       navigate("/loginPage"); // Navigate to the login page after registration
     } catch (error) {
       console.log(error.message);
+      console.log("User registration failed");
       toast.error(error.message, {
         position: "top-center",
       });
     }
   };
-
-
 
   return (
     <Container>
@@ -57,21 +49,12 @@ function Register() {
 
         <FormGroup>
           <Label>First name</Label>
-          <Input
-            type="text"
-            placeholder="First name"
-            onChange={(e) => setFname(e.target.value)}
-            required
-          />
+          <Input type="text" placeholder="First name" required />
         </FormGroup>
 
         <FormGroup>
           <Label>Last name</Label>
-          <Input
-            type="text"
-            placeholder="Last name"
-            onChange={(e) => setLname(e.target.value)}
-          />
+          <Input type="text" placeholder="Last name" />
         </FormGroup>
 
         <FormGroup>

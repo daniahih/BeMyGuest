@@ -1,8 +1,11 @@
+import Event from "../../Components/Event/Event";
 
 export default function AllEvent() {
   return (
     <div>
-      <p>events</p>
+      <p>
+        <Event />
+      </p>
     </div>
-  )
+  );
 }
