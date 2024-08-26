@@ -234,6 +234,8 @@ export const StyledSwiper = styled(Swiper)`
 
   .swiper-pagination-bullet {
     background: #000;
+    height: 0.8rem;
+    width: 0.8rem;
   }
 
   .swiper-button-next,
