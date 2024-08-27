@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useGlobalContext } from '../../Context'
 import './EventList.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
