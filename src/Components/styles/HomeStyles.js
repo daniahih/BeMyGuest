@@ -128,6 +128,7 @@ export const Button = styled.button`
 
 export const SlideContent = styled.div`
   display: flex;
+  background-color: #ffff;
 
   align-items: center;
 `
@@ -177,13 +178,12 @@ export const StyledButton = styled.button`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size:1.2rem;
+  font-size: 1.2rem;
   transition: transform 0.3s ease-in-out;
   &.primary {
     background-color: #7b3f00; /* Example color */
     color: white;
-     font-weight: 700;
- 
+    font-weight: 700;
   }
   &.secondary {
     background-color: #d3d3d3; /* Example color */
@@ -192,15 +192,12 @@ export const StyledButton = styled.button`
   &.third {
     color: black;
     background-color: #d3d3d3;
-     font-weight: 800;
-       height: 5vh;
-
-    
+    font-weight: 800;
+    height: 5vh;
   }
 
   &:hover {
     transform: scale(1.2);
-  }
   }
 `
 ////////////////////////////////////////////
@@ -386,8 +383,7 @@ export const UpcomingEventsContainers = styled.div`
   max-width: 62.5rem;
   padding: 1rem;
 
-
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center; /* Centers the cards horizontally */
   justify-content: center; /* Centers the cards vertically (if necessary) */
@@ -395,4 +391,5 @@ display: flex;
   max-width: 62.5rem;
   padding: 1rem;
   gap: 2rem; /* Adds space between the cards */
-  margin: 0 auto; /* Centers the container itself `
+  margin: 0 auto;
+`
