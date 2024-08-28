@@ -34,10 +34,10 @@ export const HeroSection = styled.section`
     font-size: 3rem;
     font-weight: 500;
     text-align: center;
-    margin-top: 4rem;
+    margin-top: 3rem;
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
   h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,24 +46,19 @@ export const HeroSection = styled.section`
     text-align: center;
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
+    margin-bottom: 5rem;
   }
 
-     @media (max-width: ${breakpoints.laptop}) {
+  @media (max-width: ${breakpoints.laptop}) {
     height: 100%; /* Adjusted height for laptops */
-    
-  
 
     h2 {
-      font-size: 2.5rem;  
-      
+      font-size: 2.5rem;
     }
     h1 {
-      font-size: 5rem;  
+      font-size: 5rem;
     }
-
   }
-
-
 `
 export const MidSection = styled.section`
   text-align: center;
@@ -129,7 +124,6 @@ export const HeroSectionEventCardContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
- 
 `
 
 export const Button = styled.button`
