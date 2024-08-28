@@ -46,7 +46,7 @@ export const HeroSection = styled.section`
     text-align: center;
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   @media (max-width: ${breakpoints.laptop}) {
