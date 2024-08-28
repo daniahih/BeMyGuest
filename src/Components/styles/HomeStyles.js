@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { Swiper } from 'swiper/react'
+import { breakpoints } from '../../../src/Responsive/breakpoints'
 
 export const AppContainer = styled.div`
   display: flex;
@@ -46,6 +47,23 @@ export const HeroSection = styled.section`
     color: white;
     text-shadow: 3px 5px 8px rgba(1, 5, 1, 67);
   }
+
+     @media (max-width: ${breakpoints.laptop}) {
+    height: 100%; /* Adjusted height for laptops */
+    
+  
+
+    h2 {
+      font-size: 2.5rem;  
+      
+    }
+    h1 {
+      font-size: 5rem;  
+    }
+
+  }
+
+
 `
 export const MidSection = styled.section`
   text-align: center;
@@ -111,6 +129,7 @@ export const HeroSectionEventCardContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+ 
 `
 
 export const Button = styled.button`
@@ -202,7 +221,7 @@ export const StyledButton = styled.button`
 `
 ////////////////////////////////////////////
 export const StyledSwiper = styled(Swiper)`
-  margin-top: 12rem;
+  margin-top: 3.5rem;
   background-color: white;
   width: 100%;
   max-width: 70rem;
@@ -284,7 +303,27 @@ export const StyledSwiper = styled(Swiper)`
     margin-top: 2rem;
     color: black;
     text-shadow: 3px 5px 8px rgba(225, 225, 225, 1);
-  }
+     
+  //   @media (max-width: ${breakpoints.desktop}) {
+  //   height: 100%; /* Adjusted height for laptops */
+   
+  //   width: 100%;
+  // }
+  // @media (max-width: ${breakpoints.laptop}) {
+  //   height: 30rem; /* Adjusted height for laptops */
+   
+  //   width: 100%;
+  // }
+
+  // @media (max-width: ${breakpoints.tablet}) {
+  //   height: 20rem; /* Adjust height for tablets */
+  //   width: 80%; /* Adjust width for tablets */
+  // }
+
+  // @media (max-width: ${breakpoints.mobile}) {
+  //   height: 15rem; /* Adjust height for mobile devices */
+  //   width: 90%; /* Adjust width for mobile devices */
+  // }
 `
 
 export const UpcomingEvent = styled.div`
