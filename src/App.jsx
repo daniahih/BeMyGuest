@@ -1,3 +1,4 @@
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AllEvent from "./pages/AllEvent/AllEvent";
@@ -11,9 +12,10 @@ import Profile from "./Components/LoginForm/Porfile";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />, // Use the Layout component here
     children: [
+
       { path: "/", element: <Home /> },
       { path: "/loginPage", element: <LoginForm /> },
       { path: "/register", element: <Register /> },
@@ -21,16 +23,14 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/Profile", element: <Profile /> },
 
+
       <ToastContainer key="toast-container" />,
     ],
   },
-]);
+])
 
 function App() {
-  return <RouterProvider router={router}>
-
-  </RouterProvider>;
+  return <RouterProvider router={router}></RouterProvider>
 }
 
-export default App;
-
+export default App

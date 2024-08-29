@@ -1,4 +1,5 @@
 const dummyData = [
+
     {
       id: 1,
       eventNameCategoryEn: "Family Religious Ceremony",
@@ -1019,4 +1020,6 @@ const dummyData = [
       },
     ];
 
-export default dummyData;
+]
+
+export default dummyData
