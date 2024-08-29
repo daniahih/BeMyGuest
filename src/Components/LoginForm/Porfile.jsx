@@ -1,12 +1,63 @@
+
+
+
 import { useEffect, useState } from "react";
 import { auth, db } from "../../firebase_setup/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { toast } from "react-toastify";
+import styled from "styled-components";
+// import { toast } from "react-toastify";
+
+// Styled-components
+
+const Container = styled.div`
+  text-align: center;
+  padding: 20px;
+`;
+
+const ProfileImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const ProfileImage = styled.img`
+  width: 40%;
+  border-radius: 50%;
+`;
+
+const WelcomeMessage = styled.h3`
+  margin: 20px 0;
+  font-size: 1.5em;
+  color: #333;
+`;
+
+const InfoContainer = styled.div`
+  margin: 10px 0;
+`;
+
+const InfoText = styled.p`
+  font-size: 1em;
+  color: #555;
+`;
+
+const LogoutButton = styled.button`
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
 function Profile() {
   const [userDetails, setUserDetails] = useState(null);
+
   const fetchUserData = async () => {
-    // when user is not logged in this auth is empty but when its logged in it has some details
     auth.onAuthStateChanged(async (user) => {
       console.log(user);
 
@@ -20,6 +71,7 @@ function Profile() {
       }
     });
   };
+
   useEffect(() => {
     fetchUserData();
   }, []);
@@ -33,31 +85,33 @@ function Profile() {
       console.error("Error logging out:", error.message);
     }
   }
+
   return (
-    <div>
+    <Container>
       {userDetails ? (
         <>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <img
+          <ProfileImageContainer>
+            <ProfileImage
               src={userDetails.photo}
-              width={"40%"}
-              style={{ borderRadius: "50%" }}
+              alt="User Profile"
             />
-          </div>
-          <h3>Welcome {userDetails.firstName} 🙏🙏</h3>
-          <div>
-            <p>Email: {userDetails.email}</p>
-            <p>First Name: {userDetails.firstName}</p>
-            {/* <p>Last Name: {userDetails.lastName}</p> */}
-          </div>
-          <button className="btn btn-primary" onClick={handleLogout}>
+          </ProfileImageContainer>
+          <WelcomeMessage>Welcome {userDetails.firstName} 🙏🙏</WelcomeMessage>
+          <InfoContainer>
+            <InfoText>Email: {userDetails.email}</InfoText>
+            <InfoText>First Name: {userDetails.firstName}</InfoText>
+            {/* <InfoText>Last Name: {userDetails.lastName}</InfoText> */}
+          </InfoContainer>
+          <LogoutButton onClick={handleLogout}>
             Logout
-          </button>
+          </LogoutButton>
         </>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </Container>
   );
 }
+
 export default Profile;
+

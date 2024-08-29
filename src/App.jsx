@@ -7,6 +7,7 @@ import Layout from "./Components/Layout";
 import { ToastContainer } from "react-toastify";
 import Register from "./Components/LoginForm/Register";
 import LoginForm from "./Components/LoginForm/LoginForm";
+import Profile from "./Components/LoginForm/Porfile";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,8 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/all-events", element: <AllEvent /> },
       { path: "/about", element: <About /> },
+      { path: "/Profile", element: <Profile /> },
+
       <ToastContainer key="toast-container" />,
     ],
   },
