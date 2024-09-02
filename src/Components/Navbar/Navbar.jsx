@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from "react";
-import "./NavBar.css";
+import './NavBar.css'
 import { auth } from "../../firebase_setup/firebase";
 
 const Navbar = () => {
@@ -17,7 +17,14 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <Link to="/">MyLogo</Link>
+        <Link to="/">
+          {' '}
+          <img
+            src="/public/logo14-removebg-preview.png"
+            alt="Logo"
+            className="logo-image"
+          />
+        </Link>
       </div>
       <ul className="navbar-links">
         <li>
@@ -40,7 +47,7 @@ const Navbar = () => {
         )}
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

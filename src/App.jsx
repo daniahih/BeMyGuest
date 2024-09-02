@@ -1,3 +1,4 @@
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AllEvent from "./pages/AllEvent/AllEvent";
@@ -20,13 +21,17 @@ const router = createBrowserRouter([
       { path: "/all-events", element: <AllEvent /> },
       { path: "/about", element: <About /> },
       { path: "/Profile", element: <Profile /> },
+
       <ToastContainer key="toast-container" />,
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router}>
+
+  </RouterProvider>;
 }
 
 export default App;
+
