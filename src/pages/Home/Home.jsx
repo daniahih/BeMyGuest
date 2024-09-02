@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SwiperSlide } from 'swiper/react'
 import { EffectFade, Navigation, Pagination } from 'swiper/modules'
-
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import dummyData from '../../Data/dummyData.js'
-
 import {
   AppContainer,
   GlobalStyle,
@@ -29,6 +27,16 @@ import {
 } from '../../Components/styles/HomeStyles.js'
 
 export default function Home() {
+  const [events, setEvents] = useState(dummyData.slice(0, 5)) // Initial events
+  const [visibleEvents, setVisibleEvents] = useState(5) // Number of events currently visible
+
+  // Function to handle "View More Events" click
+  const handleLoadMore = () => {
+    const nextEvents = dummyData.slice(visibleEvents, visibleEvents + 5)
+    setEvents((prevEvents) => [...prevEvents, ...nextEvents])
+    setVisibleEvents((prevCount) => prevCount + 5)
+  }
+
   return (
     <AppContainer>
       <GlobalStyle />
@@ -39,14 +47,31 @@ export default function Home() {
         <StyledSwiper
           slidesPerView={1}
           loop={true}
-          pagination={{ clickable: true }}
+          pagination={{
+            clickable: true,
+            renderBullet: (index, className) => {
+              const totalSlides = events.length
+              const groupSize = 5 // Number of bullets you want to show
+
+              // Calculate start and end indices for the current group of bullets
+              const startIndex = Math.floor(index / groupSize) * groupSize
+              const endIndex = Math.min(startIndex + groupSize, totalSlides)
+
+              if (index >= startIndex && index < endIndex) {
+                return `<span class="${className}">${index + 1}</span>`
+              }
+              return ''
+            },
+            dynamicBullets: true, // Enable dynamic bullets
+            dynamicMainBullets: 5, // Show 5 bullets at a time
+          }}
           effect="fade"
           navigation={true}
           modules={[EffectFade, Navigation, Pagination]}
           className="mySwiper"
         >
-          {dummyData.map((event) => (
-            <SwiperSlide>
+          {events.map((event, index) => (
+            <SwiperSlide key={index}>
               <SlideContent>
                 <TextContent>
                   <h3>{event.eventNameCategoryEn}</h3>
@@ -110,7 +135,7 @@ export default function Home() {
           <br /> The event that draws you in to discover, explore, and engage.
         </h6>
         <UpcomingEventsContainers>
-          {dummyData.map((event) => (
+          {events.map((event) => (
             <UpcomingEvent key={event.id}>
               <EventInfo>
                 <h3>{event.eventTitleEn}</h3>
@@ -151,7 +176,9 @@ export default function Home() {
           ))}
         </UpcomingEventsContainers>
       </ThirdSection>
-      <StyledButton className="third">View More Events</StyledButton>
+      <StyledButton className="third" onClick={handleLoadMore}>
+        View More Events
+      </StyledButton>
     </AppContainer>
   )
 }
