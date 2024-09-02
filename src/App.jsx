@@ -7,7 +7,8 @@ import Layout from "./Components/Layout";
 import { ToastContainer } from "react-toastify";
 import Register from "./Components/LoginForm/Register";
 import LoginForm from "./Components/LoginForm/LoginForm";
-
+import Profile from "./pages/ProfilePage/Profile";
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,16 +19,14 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/all-events", element: <AllEvent /> },
       { path: "/about", element: <About /> },
+      { path: "/Profile", element: <Profile /> },
       <ToastContainer key="toast-container" />,
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}>
-
-  </RouterProvider>;
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
-
