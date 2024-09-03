@@ -26,7 +26,7 @@ const appReducer = (state = initialState, action) => {
         error: action.payload,
         isLoading: false,
       };
-    // Add cases for other actions like ADD_EVENT_SUCCESS, UPDATE_EVENT_SUCCESS, DELETE_EVENT_SUCCESS
+  
     default:
       return state;
   }

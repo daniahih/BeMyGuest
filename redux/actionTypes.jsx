@@ -1,4 +1,3 @@
-// actionTypes.js
 export const SET_USER = "SET_USER";
 export const FETCH_EVENTS_SUCCESS = "FETCH_EVENTS_SUCCESS";
 export const FETCH_EVENTS_ERROR = "FETCH_EVENTS_ERROR";
