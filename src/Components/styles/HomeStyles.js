@@ -1,13 +1,13 @@
-import styled, { createGlobalStyle } from 'styled-components'
-import { Swiper } from 'swiper/react'
-import { breakpoints } from '../../../src/Responsive/breakpoints'
+import styled, { createGlobalStyle } from "styled-components";
+import { Swiper } from "swiper/react";
+import { breakpoints } from "../../../src/Responsive/breakpoints";
 
 export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
+`;
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
   }
-`
+`;
 
 export const HeroSection = styled.section`
   min-width: 100%;
@@ -25,12 +25,12 @@ export const HeroSection = styled.section`
   padding: 8rem 0;
   margin: 0 auto;
 
-  background-image: url('/public/heroSectionImg/heroSectionImg.png');
+  background-image: url("/public/heroSectionImg/black-white-portrait-friends.jpg");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3rem;
     font-weight: 500;
     text-align: center;
@@ -40,7 +40,7 @@ export const HeroSection = styled.section`
     margin-bottom: 4rem;
   }
   h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 6rem;
     font-weight: 500;
     text-align: center;
@@ -59,7 +59,7 @@ export const HeroSection = styled.section`
       font-size: 5rem;
     }
   }
-`
+`;
 export const MidSection = styled.section`
   text-align: center;
   padding: 20px;
@@ -73,7 +73,7 @@ export const MidSection = styled.section`
     color: rgba(1, 5, 1, 67);
     height: 24vh;
     padding-top: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.8rem;
     font-weight: 400;
     text-align: center;
@@ -85,7 +85,7 @@ export const MidSection = styled.section`
 
     // text-shadow: 2px 2px 4px rgba(1, 5, 1, 67);
   }
-`
+`;
 
 export const ThirdSection = styled.section`
   text-align: center;
@@ -103,7 +103,7 @@ export const ThirdSection = styled.section`
   border-left-color: transparent;
 
   h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 5rem;
     font-weight: 500;
     text-align: center;
@@ -112,11 +112,11 @@ export const ThirdSection = styled.section`
   }
 
   h6 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.5rem;
     text-align: center;
   }
-`
+`;
 
 export const HeroSectionEventCardContainer = styled.div`
   display: flex;
@@ -124,7 +124,7 @@ export const HeroSectionEventCardContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-`
+`;
 
 export const Button = styled.button`
   background-color: #000;
@@ -135,7 +135,7 @@ export const Button = styled.button`
   &:hover {
     background-color: #444;
   }
-`
+`;
 
 ///////////////////////////////////////////////
 
@@ -144,18 +144,18 @@ export const SlideContent = styled.div`
   background-color: #ffff;
 
   align-items: center;
-`
+`;
 
 export const TextContent = styled.div`
   width: 60%; /* Adjust as needed */
-`
+`;
 
 export const ImageContent = styled.div`
   width: 35%; /* Adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const EventDetails = styled.div`
   display: flex;
@@ -172,20 +172,20 @@ export const EventDetails = styled.div`
       width: 2.5rem;
     }
   }
-`
+`;
 
 export const ButtonGroup = styled.div`
   display: flex;
   gap: 5rem;
   margin-left: 7rem;
   margin-top: 1rem;
-`
+`;
 
 export const StyledImg = styled.img`
   width: 100%;
   height: auto;
   border-radius: 10px; /* Optional for rounded corners */
-`
+`;
 
 export const StyledButton = styled.button`
   padding: 10px 20px;
@@ -212,7 +212,7 @@ export const StyledButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
-`
+`;
 ////////////////////////////////////////////
 export const StyledSwiper = styled(Swiper)`
   margin-top: 3.5rem;
@@ -221,6 +221,9 @@ export const StyledSwiper = styled(Swiper)`
   max-width: 70rem;
   height: 24rem;
   position: relative;
+  align-items: center;
+  margin-top: 20%;
+
   z-index: 1;
   overflow: hidden;
   padding: 0 0 4rem 0;
@@ -272,7 +275,7 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     text-align: center;
@@ -282,7 +285,7 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 5rem;
     font-weight: 800;
     text-align: center;
@@ -290,7 +293,7 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h3 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
@@ -319,7 +322,7 @@ export const StyledSwiper = styled(Swiper)`
     //   width: 90%; /* Adjust width for mobile devices */
     // }
   }
-`
+`;
 
 export const UpcomingEvent = styled.div`
   // height: auto; /* Ensures the height adjusts to content */
@@ -338,7 +341,7 @@ export const UpcomingEvent = styled.div`
   justify-content: space-between;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-`
+`;
 
 export const EventInfo = styled.div`
   display: flex;
@@ -397,7 +400,7 @@ export const EventInfo = styled.div`
   .view-details-button:hover {
     background-color: #5a2e00;
   }
-`
+`;
 
 export const EventImage = styled.div`
   width: 35%;
@@ -407,7 +410,7 @@ export const EventImage = styled.div`
     object-fit: cover; /* Maintains aspect ratio */
     border-radius: 8px;
   }
-`
+`;
 
 export const UpcomingEventsContainers = styled.div`
   display: flex;
@@ -426,4 +429,4 @@ export const UpcomingEventsContainers = styled.div`
   padding: 1rem;
   gap: 2rem; /* Adds space between the cards */
   margin: 0 auto;
-`
+`;

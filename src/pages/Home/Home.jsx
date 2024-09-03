@@ -50,8 +50,8 @@ export default function Home() {
     <AppContainer>
       <GlobalStyle />
       <HeroSection>
-        <h2>Be My Guest Events App</h2>
-        <h1>June 27th - July 4th</h1>
+        {/* <h2>Be My Guest Events App</h2>
+        <h1>June 27th - July 4th</h1> */}
 
         <StyledSwiper
           slidesPerView={1}

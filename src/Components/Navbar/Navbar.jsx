@@ -27,13 +27,13 @@ const Navbar = () => {
       </div>
       <ul className="navbar-links">
         <li>
-          <Link to="/">HOME</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/all-events">All-EVENTS</Link>
+          <Link to="/all-events">All-Events</Link>
         </li>
         <li>
-          <Link to="/about">ABOUT-US</Link>
+          <Link to="/about">About-Us</Link>
         </li>
         {isLoggedIn ? (
           <li>
