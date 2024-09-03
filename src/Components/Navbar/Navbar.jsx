@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { useEffect, useState } from "react";
+import { auth } from "../../firebase_setup/firebase";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -33,9 +34,6 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/about">ABOUT-US</Link>
-        </li>
-        <li>
-          <Link to="/loginPage">LOGIN</Link>
         </li>
         {isLoggedIn ? (
           <li>
