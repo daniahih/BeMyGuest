@@ -5,6 +5,9 @@ import AllEvent from "./pages/AllEvent/AllEvent";
 import About from "./pages/About/About";
 import Home from "./pages/Home/Home";
 import Layout from "./Components/Layout";
+//redux
+import { Provider } from "react-redux";
+import store from "./store";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +22,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return 
+  <Provider store={store}>
+  <RouterProvider router={router}>
+
+  </RouterProvider>
+  <Provider>;
 }
 
 export default App;
