@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user); // Set isLoggedIn to true if a user is logged in
+    });
+
+    return () => unsubscribe(); // Cleanup the listener on unmount
+  }, []);
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -26,6 +37,15 @@ const Navbar = () => {
         <li>
           <Link to="/loginPage">LOGIN</Link>
         </li>
+        {isLoggedIn ? (
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+        ) : (
+          <li>
+            <Link to="/loginPage">Login</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
