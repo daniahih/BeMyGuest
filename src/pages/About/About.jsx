@@ -1,4 +1,3 @@
-
 import {
   GlobalStyles,
   ResponsiveContainerBlock,
@@ -23,13 +22,15 @@ const AboutMe = () => {
         <ResponsiveContainerBlock className="Container bottomContainer">
           <UltimateImg>
             <MainImg
-              src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/mp4.svg"
+              src="https://img.freepik.com/free-photo/people-celebrating-ramadan-together_23-2151404378.jpg?t=st=1725366607~exp=1725370207~hmac=d49bd3b0c0c04cc58c1a323f153b304843987fa5459ac85f30baa8ebdaeb1618&w=1380"
               alt="Main Image"
             />
             <PurpleBox>
               <PurpleText>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget
-                purus lectus viverra in semper nec pretium mus.
+                Both cultures place a high value on hospitality, family, and
+                education. Whether its the Jewish tradition of welcoming guests
+                with open arms or the Arab custom of offering food and drink to
+                visitors
               </PurpleText>
               <Stars
                 src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/mp5.svg"
@@ -38,14 +39,15 @@ const AboutMe = () => {
             </PurpleBox>
           </UltimateImg>
           <AllText className="bottomText">
-            <HeadingText>About Me</HeadingText>
+            <HeadingText>About Us</HeadingText>
             <SubHeadingText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Information about Arab and Jewish culture
             </SubHeadingText>
             <Description>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
-              pulvinar ullamcorper suspendisse ac eget. Pellentesque tempus leo
-              in ullamcorper quis vestibulum ligula elementum ut.
+              Our community is enriched by the vibrant and diverse cultures of
+              both Jewish and Arab traditions. These two cultures, while
+              distinct, share deep roots in the Middle East and have contributed
+              significantly to the tapestry of our shared history.
             </Description>
             <ExploreLink as={Link} to="/all-events">
               View Events

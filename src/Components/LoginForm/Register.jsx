@@ -20,7 +20,6 @@ function Register() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
   const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleRegister = async (e) => {

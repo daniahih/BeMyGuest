@@ -20,7 +20,6 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/Profile", element: <Profile /> },
       { path: "/loginPage", element: <LoginForm /> },
-
       <ToastContainer key="toast-container" />,
     ],
   },
