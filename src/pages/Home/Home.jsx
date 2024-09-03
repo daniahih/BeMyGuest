@@ -88,21 +88,21 @@ export default function Home() {
                   <EventDetails>
                     <span>
                       <img
-                        src="../../../public/eventImages/gps.png"
+                        src="/eventImages/gps.png" // Corrected path
                         alt="icon-Place"
                       />
                       {event.eventPlaceEn}
                     </span>
                     <span>
                       <img
-                        src="../../../public/eventImages/calendar.png"
+                        src="/eventImages/calendar.png" // Corrected path
                         alt="icon-Date"
                       />
                       {event.eventDate}
                     </span>
                     <span>
                       <img
-                        src="../../../public/eventImages/time-left.png"
+                        src="/eventImages/time-left.png" // Corrected path
                         alt="icon-time"
                       />
                       {event.eventHour}
@@ -151,21 +151,21 @@ export default function Home() {
                 <div>
                   <p>
                     <img
-                      src="../../../public/eventImages/gps.png"
+                      src="/eventImages/gps.png" // Corrected path
                       alt="icon-Place"
                     />
                     {event.eventPlaceEn}
                   </p>
                   <p>
                     <img
-                      src="../../../public/eventImages/calendar.png"
+                      src="/eventImages/calendar.png" // Corrected path
                       alt="icon-Date"
                     />
                     {event.eventDate}
                   </p>
                   <p>
                     <img
-                      src="../../../public/eventImages/time-left.png"
+                      src="/eventImages/time-left.png" // Corrected path
                       alt="icon-time"
                     />
                     {event.eventHour}

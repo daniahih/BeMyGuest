@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom'
-import './NavBar.css'
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          {' '}
           <img
-            src="/public/logo14-removebg-preview.png"
+            src="/logo14-removebg-preview.png" // Corrected path
             alt="Logo"
             className="logo-image"
           />
@@ -29,7 +28,7 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
