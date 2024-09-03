@@ -1,10 +1,15 @@
 import Navbar from "../Components/Navbar/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Layout = () => {
+  const location = useLocation();
+
+  const hideNavbar =
+    location.pathname === "/loginPage" || location.pathname === "/register";
+
   return (
     <>
-      <Navbar />
+      {!hideNavbar && <Navbar />}
       <Outlet />
     </>
   );

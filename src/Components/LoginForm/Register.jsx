@@ -18,13 +18,13 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [name, setName] = useState("");
   const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password, name);
       const user = auth.currentUser;
       console.log(user);
 
@@ -49,7 +49,12 @@ function Register() {
 
         <FormGroup>
           <Label>First name</Label>
-          <Input type="text" placeholder="First name" required />
+          <Input
+            type="text"
+            placeholder="First name"
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
         </FormGroup>
 
         <FormGroup>

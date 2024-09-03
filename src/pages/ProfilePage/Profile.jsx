@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../../firebase_setup/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
@@ -27,13 +27,16 @@ function Profile() {
         try {
           const userDoc = await getDoc(userDocRef);
           if (userDoc.exists()) {
+            const createdAt = userDoc.data().createdAt
+              ? userDoc.data().createdAt.toDate().toLocaleDateString()
+              : "Not Available";
+
             setUser({
               email: currentUser.email,
-              name: userDoc.data().name || "Anonymous",
-              createdAt: userDoc.data().createdAt || "Not Available",
+              displayName: userDoc.data().name || "Anonymous",
+              createdAt: createdAt,
             });
           } else {
-            // setError("User data not found.");
             toast.error("User data not found.", {
               position: "bottom-center",
             });
@@ -73,7 +76,6 @@ function Profile() {
     }
   };
 
-
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -81,6 +83,20 @@ function Profile() {
   if (error) {
     return <p>{error}</p>;
   }
+
+  const createUserDocument = async (user) => {
+    if (!user) return;
+
+    const userDocRef = doc(db, "users", user.uid);
+    await setDoc(userDocRef, {
+      name: user.name || "Anonymous",
+      email: user.email,
+      createdAt: new Date(), // Alternatively, use Firebase's server timestamp
+    });
+  };
+
+  // Call this function after the user signs up or logs in
+  createUserDocument(auth.currentUser);
 
   return (
     <Container>
@@ -94,10 +110,10 @@ function Profile() {
           <Label>Name:</Label>
           <Value>{user?.name || "N/A"}</Value>
         </InfoGroup>
-        <InfoGroup>
+        {/* <InfoGroup>
           <Label>Joined on:</Label>
           <Value>{user?.createdAt || "N/A"}</Value>
-        </InfoGroup>
+        </InfoGroup> */}
         <Button onClick={handleLogout}>Logout</Button>
       </ProfileContainer>
     </Container>
