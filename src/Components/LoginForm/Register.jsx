@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../../firebase_setup/firebase";
-
+import { auth, db } from "../../firebase_setup/firebase"; // Ensure db is imported from your firebase setup
+import { setDoc, doc } from "firebase/firestore"; // Import Firestore methods
 import { toast } from "react-toastify";
 import {
   Container,
@@ -16,6 +16,8 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -24,9 +26,15 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password, name);
-      const user = auth.currentUser;
-      console.log(user);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Save user data to Firestore
+      await saveUserData(user, firstName, lastName);
 
       toast.success("User registered successfully!!", {
         position: "top-center",
@@ -42,6 +50,16 @@ function Register() {
     }
   };
 
+  const saveUserData = async (user, firstName, lastName) => {
+    const userDocRef = doc(db, "users", user.uid);
+    await setDoc(userDocRef, {
+      firstName: firstName || "Anonymous",
+      lastName: lastName || "",
+      email: user.email,
+      createdAt: new Date(), // Store the creation time
+    });
+  };
+
   return (
     <Container>
       <Form onSubmit={handleRegister}>
@@ -52,14 +70,20 @@ function Register() {
           <Input
             type="text"
             placeholder="First name"
-            onChange={(e) => setName(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </FormGroup>
 
         <FormGroup>
           <Label>Last name</Label>
-          <Input type="text" placeholder="Last name" />
+          <Input
+            type="text"
+            placeholder="Last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </FormGroup>
 
         <FormGroup>
@@ -67,6 +91,7 @@ function Register() {
           <Input
             type="email"
             placeholder="Enter email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -77,6 +102,7 @@ function Register() {
           <Input
             type="password"
             placeholder="Enter password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />

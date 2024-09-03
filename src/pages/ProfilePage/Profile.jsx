@@ -27,14 +27,15 @@ function Profile() {
         try {
           const userDoc = await getDoc(userDocRef);
           if (userDoc.exists()) {
-            const createdAt = userDoc.data().createdAt
-              ? userDoc.data().createdAt.toDate().toLocaleDateString()
-              : "Not Available";
-
+            const userData = userDoc.data();
             setUser({
               email: currentUser.email,
-              displayName: userDoc.data().name || "Anonymous",
-              createdAt: createdAt,
+              name: `${userData.firstName || "Anonymous"} ${
+                userData.lastName || ""
+              }`.trim(),
+              createdAt: userData.createdAt
+                ? userData.createdAt.toDate().toLocaleDateString()
+                : "Not Available",
             });
           } else {
             toast.error("User data not found.", {
@@ -52,9 +53,8 @@ function Profile() {
         toast.error("No user logged in.", {
           position: "bottom-center",
         });
-        navigate("/Profile");
+        navigate("/loginPage");
       }
-
       setLoading(false);
     };
 

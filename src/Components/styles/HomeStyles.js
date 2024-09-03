@@ -25,7 +25,7 @@ export const HeroSection = styled.section`
   padding: 8rem 0;
   margin: 0 auto;
 
-  background-image: url("https://img.freepik.com/free-photo/best-friends-enjoying-their-celebration-new-years_23-2148349029.jpg?t=st=1725281421~exp=1725285021~hmac=55306ce56df389ae246dbf097ba1f2fec7f1dfbe942b5122b12452091a66de16&w=1380");
+  background-image: url("/public/heroSectionImg/black-white-portrait-friends.jpg");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -221,6 +221,9 @@ export const StyledSwiper = styled(Swiper)`
   max-width: 70rem;
   height: 24rem;
   position: relative;
+  align-items: center;
+  margin-top: 20%;
+
   z-index: 1;
   overflow: hidden;
   padding: 0 0 4rem 0;
@@ -272,7 +275,7 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h2 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     text-align: center;
@@ -282,7 +285,7 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 5rem;
     font-weight: 800;
     text-align: center;
@@ -290,34 +293,35 @@ export const StyledSwiper = styled(Swiper)`
   }
 
   h3 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.8rem;
     font-weight: 500;
     text-align: center;
     margin-top: 2rem;
     color: black;
     text-shadow: 3px 5px 8px rgba(225, 225, 225, 1);
-     
-  //   @media (max-width: ${breakpoints.desktop}) {
-  //   height: 100%; /* Adjusted height for laptops */
-   
-  //   width: 100%;
-  // }
-  // @media (max-width: ${breakpoints.laptop}) {
-  //   height: 30rem; /* Adjusted height for laptops */
-   
-  //   width: 100%;
-  // }
 
-  // @media (max-width: ${breakpoints.tablet}) {
-  //   height: 20rem; /* Adjust height for tablets */
-  //   width: 80%; /* Adjust width for tablets */
-  // }
+    //   @media (max-width: ${breakpoints.desktop}) {
+    //   height: 100%; /* Adjusted height for laptops */
 
-  // @media (max-width: ${breakpoints.mobile}) {
-  //   height: 15rem; /* Adjust height for mobile devices */
-  //   width: 90%; /* Adjust width for mobile devices */
-  // }
+    //   width: 100%;
+    // }
+    // @media (max-width: ${breakpoints.laptop}) {
+    //   height: 30rem; /* Adjusted height for laptops */
+
+    //   width: 100%;
+    // }
+
+    // @media (max-width: ${breakpoints.tablet}) {
+    //   height: 20rem; /* Adjust height for tablets */
+    //   width: 80%; /* Adjust width for tablets */
+    // }
+
+    // @media (max-width: ${breakpoints.mobile}) {
+    //   height: 15rem; /* Adjust height for mobile devices */
+    //   width: 90%; /* Adjust width for mobile devices */
+    // }
+  }
 `;
 
 export const UpcomingEvent = styled.div`
