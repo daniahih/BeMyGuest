@@ -27,13 +27,17 @@ function Profile() {
         try {
           const userDoc = await getDoc(userDocRef);
           if (userDoc.exists()) {
+            const userData = userDoc.data();
             setUser({
               email: currentUser.email,
-              name: userDoc.data().name || "Anonymous",
-              createdAt: userDoc.data().createdAt || "Not Available",
+              name: `${userData.firstName || "Anonymous"} ${
+                userData.lastName || ""
+              }`.trim(),
+              createdAt: userData.createdAt
+                ? userData.createdAt.toDate().toLocaleDateString()
+                : "Not Available",
             });
           } else {
-            // setError("User data not found.");
             toast.error("User data not found.", {
               position: "bottom-center",
             });
@@ -49,9 +53,8 @@ function Profile() {
         toast.error("No user logged in.", {
           position: "bottom-center",
         });
-        navigate("/Profile");
+        navigate("/loginPage");
       }
-
       setLoading(false);
     };
 
@@ -72,7 +75,6 @@ function Profile() {
       });
     }
   };
-
 
   if (loading) {
     return <p>Loading...</p>;
