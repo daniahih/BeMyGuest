@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react";
-import './NavBar.css'
-import { auth } from "../../firebase_setup/firebase";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,9 +16,8 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/">
-          {' '}
           <img
-            src="/public/logo14-removebg-preview.png"
+            src="/logo14-removebg-preview.png" // Corrected path
             alt="Logo"
             className="logo-image"
           />
@@ -28,13 +25,16 @@ const Navbar = () => {
       </div>
       <ul className="navbar-links">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">HOME</Link>
         </li>
         <li>
-          <Link to="/all-events">All-Event</Link>
+          <Link to="/all-events">All-EVENTS</Link>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about">ABOUT-US</Link>
+        </li>
+        <li>
+          <Link to="/loginPage">LOGIN</Link>
         </li>
         {isLoggedIn ? (
           <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
         )}
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

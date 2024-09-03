@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components'
-import dummyData from '../../Data/dummyData'
-import { ThemeProvider } from 'styled-components'
+import React from "react";
+import styled, { keyframes, ThemeProvider } from "styled-components";
+import { useGlobalContext } from "/src/Context.jsx"; // Correct import
 
 // Keyframe animations for the effects
 const popIn = keyframes`
@@ -12,7 +12,7 @@ const popIn = keyframes`
     opacity: 1;
     transform: scale(1, 1);
   }
-`
+`;
 
 const slideIn = keyframes`
   0% {
@@ -23,7 +23,7 @@ const slideIn = keyframes`
     opacity: 1;
     transform: translate(0, 0);
   }
-`
+`;
 
 const slideLeft = keyframes`
   0% {
@@ -34,7 +34,7 @@ const slideLeft = keyframes`
     opacity: 1;
     transform: translate(0, 0);
   }
-`
+`;
 
 const slideUp = keyframes`
   0% {
@@ -45,16 +45,15 @@ const slideUp = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`
+`;
 
 // Container styling
 export const Container = styled.div`
   width: 1300px;
-
   padding: 0 20px;
   margin: 0 auto;
   background-color: ${({ theme }) => theme.colors.card};
-`
+`;
 
 // Event cards container styling
 const EventCardsContainer = styled.div`
@@ -64,7 +63,7 @@ const EventCardsContainer = styled.div`
   gap: 20px;
   padding-top: 6rem;
   z-index: -1;
-`
+`;
 
 // Individual event card styling
 const EventCard = styled.div`
@@ -137,7 +136,7 @@ const EventCard = styled.div`
   .button:hover {
     background-color: ${({ theme }) => theme.colors.primary};
   }
-`
+`;
 
 // Event image styling
 const EventImageContainer = styled.div`
@@ -155,28 +154,36 @@ const EventImageContainer = styled.div`
   ${EventCard}:hover & img {
     transform: scale(1.05);
   }
-`
+`;
 
 const Theme = {
   colors: {
-    card: '#fff',
-    primary: '#007bff',
-    secondary: '#343a40',
-    light: '#f8f9fa',
-    dark: '#212529',
-    textPrimary: '#343a40',
-    textSecondary: '#6c757d',
-    textLight: '#f8f9fa',
-    textDark: '#212529',
+    card: "#fff",
+    primary: "#007bff",
+    secondary: "#343a40",
+    light: "#f8f9fa",
+    dark: "#212529",
+    textPrimary: "#343a40",
+    textSecondary: "#6c757d",
+    textLight: "#f8f9fa",
+    textDark: "#212529",
   },
-}
+};
 
 export default function Event() {
+  const { Events, isLoading, error } = useGlobalContext(); // Fetching events from context
+
+  // Handle loading state
+  if (isLoading) return <div>Loading...</div>;
+
+  // Handle error state
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
     <ThemeProvider theme={Theme}>
       <Container>
         <EventCardsContainer>
-          {dummyData.map((event) => (
+          {Events.map((event) => (
             <EventCard key={event.id}>
               <div className="event-card-content">
                 <h3 className="event-title">{event.eventTitleEn}</h3>
@@ -194,12 +201,6 @@ export default function Event() {
                   {event.eventDate}
                 </p>
                 <ul className="event-description">
-                  {/* I have changes these line code so no bullets will appear in the event card array dummyData (Daniela) 
-
-                  this is the previous code if you would like to change it back :
-                   {event.eventDescriptionEn.map((line, index) => (
-                    <li key={index}>{line}</li>
-                  ))}*/}
                   {event.eventDescriptionEn.map((desc, index) => (
                     <p key={index} style={{ margin: 0 }}>
                       {desc}
@@ -220,5 +221,5 @@ export default function Event() {
         </EventCardsContainer>
       </Container>
     </ThemeProvider>
-  )
+  );
 }
