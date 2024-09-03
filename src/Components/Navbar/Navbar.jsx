@@ -36,9 +36,15 @@ const Navbar = () => {
           <Link to="/about">About-Us</Link>
         </li>
         {isLoggedIn ? (
+          <>
+          
+          <li>
+            <Link to="/myEvents">My Events</Link>
+          </li>
           <li>
             <Link to="/profile">Profile</Link>
           </li>
+          </>
         ) : (
           <li>
             <Link to="/loginPage">Login</Link>
