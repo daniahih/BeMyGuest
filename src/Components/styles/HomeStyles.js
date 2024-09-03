@@ -25,7 +25,7 @@ export const HeroSection = styled.section`
   padding: 8rem 0;
   margin: 0 auto;
 
-  background-image: url('/public/heroSectionImg/BBQ-Cheers-opacity2.png');
+  background-image: url('/public/heroSectionImg/heroSectionImg.png');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -297,27 +297,28 @@ export const StyledSwiper = styled(Swiper)`
     margin-top: 2rem;
     color: black;
     text-shadow: 3px 5px 8px rgba(225, 225, 225, 1);
-     
-  //   @media (max-width: ${breakpoints.desktop}) {
-  //   height: 100%; /* Adjusted height for laptops */
-   
-  //   width: 100%;
-  // }
-  // @media (max-width: ${breakpoints.laptop}) {
-  //   height: 30rem; /* Adjusted height for laptops */
-   
-  //   width: 100%;
-  // }
 
-  // @media (max-width: ${breakpoints.tablet}) {
-  //   height: 20rem; /* Adjust height for tablets */
-  //   width: 80%; /* Adjust width for tablets */
-  // }
+    //   @media (max-width: ${breakpoints.desktop}) {
+    //   height: 100%; /* Adjusted height for laptops */
 
-  // @media (max-width: ${breakpoints.mobile}) {
-  //   height: 15rem; /* Adjust height for mobile devices */
-  //   width: 90%; /* Adjust width for mobile devices */
-  // }
+    //   width: 100%;
+    // }
+    // @media (max-width: ${breakpoints.laptop}) {
+    //   height: 30rem; /* Adjusted height for laptops */
+
+    //   width: 100%;
+    // }
+
+    // @media (max-width: ${breakpoints.tablet}) {
+    //   height: 20rem; /* Adjust height for tablets */
+    //   width: 80%; /* Adjust width for tablets */
+    // }
+
+    // @media (max-width: ${breakpoints.mobile}) {
+    //   height: 15rem; /* Adjust height for mobile devices */
+    //   width: 90%; /* Adjust width for mobile devices */
+    // }
+  }
 `
 
 export const UpcomingEvent = styled.div`
