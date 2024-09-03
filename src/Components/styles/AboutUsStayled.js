@@ -4,6 +4,7 @@ import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   * {
     font-family: Nunito, sans-serif;
+    box-sizing: border-box; /* Added to handle padding and borders */
   }
 
   a {
@@ -23,7 +24,7 @@ export const ResponsiveContainerBlock = styled.div`
   justify-content: flex-start;
 
   &.bigContainer {
-    padding: 10px 50px;
+    padding: 65px 50px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -31,7 +32,6 @@ export const ResponsiveContainerBlock = styled.div`
 
   &.Container {
     margin: 80px auto 50px;
-    /* justify-content: center; */
     align-items: center;
     max-width: 1320px;
     padding: 10px;
@@ -59,7 +59,6 @@ export const MainImg = styled.img`
   border-radius: 10px;
 
   @media (max-width: 768px) {
-    width: 100%;
     margin-bottom: -70px;
   }
 `;
@@ -86,6 +85,8 @@ export const PurpleBox = styled.div`
     position: static;
     margin-top: 0;
     margin-left: 0;
+    align-items: center; /* Center content within the box */
+    text-align: center; /* Center text */
   }
 
   @media (max-width: 500px) {
@@ -127,6 +128,7 @@ export const AllText = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
   }
 
@@ -140,7 +142,8 @@ export const AllText = styled.div`
     @media (max-width: 768px) {
       width: 100%;
       margin-right: 0;
-      align-items: flex-start;
+      align-items: center; /* Center content horizontally */
+      text-align: center; /* Center text */
     }
 
     @media (max-width: 500px) {
@@ -218,4 +221,17 @@ export const ExploreLink = styled.a`
     font-size: 15px;
     padding: 6px 35px;
   }
+`;
+
+// New container for centering the "About Us" section and button
+export const AboutUsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 `;
