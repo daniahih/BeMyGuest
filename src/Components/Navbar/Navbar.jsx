@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
