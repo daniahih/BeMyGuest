@@ -25,7 +25,7 @@ export const HeroSection = styled.section`
   padding: 8rem 0;
   margin: 0 auto;
 
-  background-image: url("/public/heroSectionImg/black-white-portrait-friends.jpg");
+  background-image: url("/public/heroSectionImg/baby-s-gender-reveal-party.jpg");
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -218,11 +218,11 @@ export const StyledSwiper = styled(Swiper)`
   margin-top: 3.5rem;
   background-color: white;
   width: 100%;
-  max-width: 70rem;
-  height: 24rem;
+  max-width: 78rem;
+  height: 27rem;
   position: relative;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 24%;
 
   z-index: 1;
   overflow: hidden;
@@ -413,7 +413,7 @@ export const EventImage = styled.div`
 `;
 
 export const UpcomingEventsContainers = styled.div`
-  display: flex;
+  display: grid;
   flex-direction: column; /* Ensures that the events are stacked vertically */
   gap: 2rem; /* Adds space between the events */
   width: 100%;
