@@ -25,3 +25,9 @@ font-weight: bold;
     padding: 10px;
     border-radius: 5rem;
 }
+.delete-event-btn {
+    padding: 5px;
+    background-color: rgb(174, 174, 250);
+    border-radius: 15px;
+    margin-left: 10px;
+}
