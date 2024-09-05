@@ -1,0 +1,33 @@
+.my-events-container{
+    padding: 9rem;
+text-align: center;
+font-size: larger;
+font-weight: bold;
+}
+.main-container {
+    margin-top: 3rem;
+    border: 2px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.registered {
+    background-color: rgb(214, 210, 255);
+    width: 40%;
+    padding: 10px;
+    border-radius: 5rem;
+    
+    
+}
+.hosted {
+    background-color: rgb(214, 210, 255);
+    width: 40%;
+    padding: 10px;
+    border-radius: 5rem;
+}
+.delete-event-btn {
+    padding: 5px;
+    background-color: rgb(174, 174, 250);
+    border-radius: 15px;
+    margin-left: 10px;
+}
