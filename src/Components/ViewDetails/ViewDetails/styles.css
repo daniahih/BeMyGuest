@@ -1,0 +1,179 @@
+
+/* Event Card */
+.event-card {
+  max-width: 1000px; /* Adjusted max-width for a longer card */
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8); /* White with opacity */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  padding: 2rem; /* Increased padding for more space inside */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row; /* Changed to row to place content side by side */
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.event-card img {
+  width: 100%; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0.75rem;
+  background: rgba(0, 0, 0, 0.05); /* Slight background for the details */
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #4a4a4a; /* Dark grey */
+}
+
+.event-title {
+  font-size: 2.25rem; /* Increased font size for a more prominent title */
+  font-weight: 700;
+  color: #1e3a8a; /* Dark blue */
+  margin-bottom: 1rem;
+}
+
+.event-description {
+  color: #2d3748; /* Slightly darker grey */
+  margin-bottom: 1.5rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+  gap: 1rem; /* Space between buttons */
+}
+
+.button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px; /* Fully rounded */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: fit-content; /* Adjust width to fit the content */
+  display: block; /* Ensure block display for centering */
+}
+
+.button-blue {
+  background: linear-gradient(to right, #36555e, #174c5d);
+}
+
+.button-green {
+  background: linear-gradient(to right, #89cde2, #0fb9cf);
+}
+
+.button-purple {
+  background: linear-gradient(to right, #97aef0, #7d77ed);
+}
+
+.button:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.button-join {
+  margin-top: 1rem;
+  background: linear-gradient(to right, #282ed9, #4c1d95); /* Gradient for Join Event */
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it is above other content */
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  max-width: 500px; /* Adjust size as needed */
+  width: 100%;
+}
+
+/* Modal title */
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Modal body */
+.modal-body {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.summary-view-container {
+  padding: 20px;
+}
+
+.event-summary-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-summary-item {
+  margin-bottom: 15px;
+}
+
+.button-view-details {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.button-view-details:hover {
+  background-color: #0056b3;
+}
+
+.event-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #fff;
+  position: relative;
+}
+
+.button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}

@@ -1,4 +1,3 @@
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AllEvent from "./pages/AllEvent/AllEvent";
@@ -9,7 +8,8 @@ import { ToastContainer } from "react-toastify";
 import Register from "./Components/LoginForm/Register";
 import LoginForm from "./Components/LoginForm/LoginForm";
 import Profile from "./pages/ProfilePage/Profile";
- 
+import EventDetailsPage from "./Components/ViewDetails/ViewDetails/EventDetailsPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,17 +21,17 @@ const router = createBrowserRouter([
       { path: "/all-events", element: <AllEvent /> },
       { path: "/about", element: <About /> },
       { path: "/Profile", element: <Profile /> },
-
+      {
+        path: "/event-details/:eventId",
+        element: <EventDetailsPage />,
+      },
       <ToastContainer key="toast-container" />,
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router}>
-
-  </RouterProvider>;
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;
-

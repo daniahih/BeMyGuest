@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useGlobalContext } from "../../Context.jsx";
+import { useGlobalContext } from "../../Context";
+import { useNavigate } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -24,11 +25,12 @@ import {
   StyledButton,
   EventInfo,
   EventImage,
-} from "../../Components/styles/HomeStyles.js";
+} from "../../Components/styles/HomeStyles";
 
 export default function Home() {
   const { Events, isLoading, error } = useGlobalContext();
   const [visibleEventsCount, setVisibleEventsCount] = useState(5); // Initial count
+  const navigate = useNavigate();
 
   // Handle loading state
   if (isLoading) return <div>Loading...</div>;
@@ -46,13 +48,15 @@ export default function Home() {
     setVisibleEventsCount((prevCount) => prevCount + 5); // Increase the count by 5
   };
 
+  // Function to handle "View Details" click
+  const handleViewDetails = (id) => {
+    navigate(`/event-details/${id}`);
+  };
+
   return (
     <AppContainer>
       <GlobalStyle />
       <HeroSection>
-        {/* <h2>Be My Guest Events App</h2>
-        <h1>June 27th - July 4th</h1> */}
-
         <StyledSwiper
           slidesPerView={1}
           loop={true}
@@ -71,15 +75,15 @@ export default function Home() {
               }
               return "";
             },
-            dynamicBullets: true, // Enable dynamic bullets
-            dynamicMainBullets: 5, // Show 5 bullets at a time
+            dynamicBullets: true,
+            dynamicMainBullets: 5,
           }}
           effect="fade"
           navigation={true}
           modules={[EffectFade, Navigation, Pagination]}
           className="mySwiper"
         >
-          {Events.slice(0, visibleEventsCount).map((event, index) => (
+          {Events.slice(0, visibleEventsCount).map((event) => (
             <SwiperSlide key={event.id}>
               <SlideContent>
                 <TextContent>
@@ -87,30 +91,24 @@ export default function Home() {
                   <h2>{event.eventTitleEn}</h2>
                   <EventDetails>
                     <span>
-                      <img
-                        src="/eventImages/gps.png" // Corrected path
-                        alt="icon-Place"
-                      />
+                      <img src="/eventImages/gps.png" alt="icon-Place" />
                       {event.eventPlaceEn}
                     </span>
                     <span>
-                      <img
-                        src="/eventImages/calendar.png" // Corrected path
-                        alt="icon-Date"
-                      />
+                      <img src="/eventImages/calendar.png" alt="icon-Date" />
                       {event.eventDate}
                     </span>
                     <span>
-                      <img
-                        src="/eventImages/time-left.png" // Corrected path
-                        alt="icon-time"
-                      />
+                      <img src="/eventImages/time-left.png" alt="icon-time" />
                       {event.eventHour}
                     </span>
                   </EventDetails>
                   <ButtonGroup>
                     <StyledButton className="primary">Join Event</StyledButton>
-                    <StyledButton className="secondary">
+                    <StyledButton
+                      className="secondary"
+                      onClick={() => handleViewDetails(event.id)}
+                    >
                       More details
                     </StyledButton>
                   </ButtonGroup>
@@ -150,31 +148,27 @@ export default function Home() {
                 <h3>{event.eventTitleEn}</h3>
                 <div>
                   <p>
-                    <img
-                      src="/eventImages/gps.png" // Corrected path
-                      alt="icon-Place"
-                    />
+                    <img src="/eventImages/gps.png" alt="icon-Place" />
                     {event.eventPlaceEn}
                   </p>
                   <p>
-                    <img
-                      src="/eventImages/calendar.png" // Corrected path
-                      alt="icon-Date"
-                    />
+                    <img src="/eventImages/calendar.png" alt="icon-Date" />
                     {event.eventDate}
                   </p>
                   <p>
-                    <img
-                      src="/eventImages/time-left.png" // Corrected path
-                      alt="icon-time"
-                    />
+                    <img src="/eventImages/time-left.png" alt="icon-time" />
                     {event.eventHour}
                   </p>
                 </div>
                 <div className="event-description">
                   {event.eventDescriptionEn}
                 </div>
-                <button className="view-details-button">View Details</button>
+                <button
+                  className="view-details-button"
+                  onClick={() => handleViewDetails(event.id)}
+                >
+                  View Details
+                </button>
               </EventInfo>
               <EventImage>
                 <img
