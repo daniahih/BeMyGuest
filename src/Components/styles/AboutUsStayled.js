@@ -1,58 +1,21 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = styled.div`
+// Global Styles
+export const GlobalStyles = createGlobalStyle`
   * {
     font-family: Nunito, sans-serif;
+    box-sizing: border-box; /* Added to handle padding and borders */
+  }
+
+  a {
+    text-decoration: none;
   }
 `;
 
-export const TextBlock = styled.p`
-  margin: 0;
-  padding: 0;
-  line-height: 25px;
-
-  &.heading {
-    font-size: 36px;
-    line-height: 45px;
-    font-weight: 800;
-    margin-bottom: 30px;
-    color: #f7c50f;
-    text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.4);
-    @media (max-width: 768px) {
-      font-size: 32px;
-      line-height: 40px;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 500px) {
-      font-size: 26px;
-      line-height: 30px;
-    }
-  }
-
-  &.subHeading {
-    text-align: center;
-    font-size: 18px;
-    line-height: 26px;
-    margin-bottom: 60px;
-
-    @media (max-width: 768px) {
-      font-size: 18px;
-      line-height: 24px;
-    }
-
-    @media (max-width: 500px) {
-      font-size: 14px;
-      line-height: 22px;
-      margin-bottom: 30px;
-    }
-  }
-`;
-
+// Styled Components
 export const ResponsiveContainerBlock = styled.div`
   min-height: 75px;
-  height: 100vh;
-  overflow: hidden;
+  height: fit-content;
   width: 100%;
   padding: 10px;
   display: flex;
@@ -61,65 +24,214 @@ export const ResponsiveContainerBlock = styled.div`
   justify-content: flex-start;
 
   &.bigContainer {
-    padding: 30px 30px;
-    background-image: url("https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/bb29.png");
-    background-size: cover;
-    background-size: fullscreen;
-    background-repeat: no-repeat;
-
-    @media (max-width: 500px) {
-      padding: 10px 20px;
-    }
-  }
-
-  &.Container {
-    max-width: 800px;
+    padding: 65px 50px;
     flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    padding-top: 120px;
-    margin: 150px auto;
-    background-color: white;
-    border-radius: 15px;
-    background-color: #e9eaec;
-    height: 50vh;
-  }
-`;
-
-export const SocialIcon = styled.img`
-  width: 33px;
-  height: 33px;
-  @media (max-width: 768px) {
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-export const SocialIconsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-
-  @media (max-width: 500px) {
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
   }
+
+  &.Container {
+    margin: 80px auto 50px;
+    align-items: center;
+    max-width: 1320px;
+    padding: 10px;
+  }
+
+  &.Container.bottomContainer {
+    flex-direction: row-reverse;
+    position: static;
+    padding-top: 110px;
+  }
 `;
 
-export const SocialIconWrapper = styled.a`
-  margin: 0 50px;
-  color: blue;
+export const UltimateImg = styled.div`
+  width: 50%;
+  position: relative;
 
-  &:hover {
-    cursor: pointer;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+`;
+
+export const MainImg = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+
+  @media (max-width: 768px) {
+    margin-bottom: -70px;
+  }
+`;
+
+export const PurpleBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 430px;
+  background-color: rgb(176, 98, 255);
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: -35px;
+  left: -8%;
+
+  @media (max-width: 1024px) {
+    bottom: 10%;
+    left: -10%;
+    top: 70%;
   }
 
   @media (max-width: 768px) {
-    margin: 0 25px;
+    position: static;
+    margin-top: 0;
+    margin-left: 0;
+    align-items: center; /* Center content within the box */
+    text-align: center; /* Center text */
   }
 
   @media (max-width: 500px) {
-    margin: 0 20px;
+    position: static;
   }
+`;
+
+export const PurpleText = styled.p`
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+  margin-bottom: 10px;
+
+  @media (max-width: 500px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+`;
+
+export const Stars = styled.img`
+  width: 40%;
+
+  @media (max-width: 500px) {
+    width: 55%;
+  }
+`;
+
+export const AllText = styled.div`
+  padding: 0;
+  width: 40%;
+  margin-top: 0;
+
+  &.aboveText {
+    margin-left: 40px;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &.bottomText {
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 15px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-right: 0;
+      align-items: center; /* Center content horizontally */
+      text-align: center; /* Center text */
+    }
+
+    @media (max-width: 500px) {
+      margin-top: 75px;
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 40%;
+    margin-left: 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+    width: 100%;
+  }
+`;
+
+export const HeadingText = styled.p`
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  color: rgb(176, 98, 255);
+  margin-bottom: 5px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
+
+export const SubHeadingText = styled.p`
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 700;
+  color: rgb(102, 102, 102);
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    text-align: center;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 18px;
+  line-height: 26px;
+  color: rgb(102, 102, 102);
+  margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+`;
+
+export const ExploreLink = styled.a`
+  font-size: 16px;
+  line-height: 28px;
+  color: rgb(102, 102, 102);
+  border: 2px solid rgb(102, 102, 102);
+  cursor: pointer;
+  background-color: white;
+  padding: 8px 40px;
+  text-align: center;
+
+  &:hover {
+    background-color: rgb(176, 98, 255);
+    color: white;
+    border: none;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 15px;
+    padding: 6px 35px;
+  }
+`;
+
+// New container for centering the "About Us" section and button
+export const AboutUsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 `;
