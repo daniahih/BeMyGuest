@@ -1,10 +1,15 @@
 import Navbar from "../Components/Navbar/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Layout = () => {
+  const location = useLocation();
+
+  const hiddenPaths = ["/loginPage", "/register"];
+  const isNavbarHidden = hiddenPaths.includes(location.pathname);
+
   return (
     <>
-      <Navbar />
+      {!isNavbarHidden && <Navbar />}
       <Outlet />
     </>
   );

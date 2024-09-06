@@ -4,15 +4,14 @@ import { auth, db } from "../../firebase_setup/firebase"; // Ensure db is import
 import { setDoc, doc } from "firebase/firestore"; // Import Firestore methods
 import { toast } from "react-toastify";
 import {
-  Container,
-  Form,
+  Section,
+  FormCard,
   Title,
-  FormGroup,
-  Label,
   Input,
   Button,
-  ForgotPassword,
-} from "../../Components/styles/Register";
+  Text,
+  Link,
+} from "../../Components/styles/Register"; // Import styled-components
 import { useNavigate } from "react-router-dom";
 
 function Register() {
@@ -61,61 +60,60 @@ function Register() {
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleRegister}>
+    <Section>
+      <FormCard>
         <Title>Sign Up</Title>
+        <form onSubmit={handleRegister}>
+          <div>
+            {/* <Label>First name</Label> */}
+            <Input
+              type="text"
+              placeholder="First name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+          </div>
 
-        <FormGroup>
-          <Label>First name</Label>
-          <Input
-            type="text"
-            placeholder="First name"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-        </FormGroup>
+          <div>
+            {/* <Label>Last name</Label> */}
+            <Input
+              type="text"
+              placeholder="Last name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
 
-        <FormGroup>
-          <Label>Last name</Label>
-          <Input
-            type="text"
-            placeholder="Last name"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </FormGroup>
+          <div>
+            {/* <Label>Email address</Label> */}
+            <Input
+              type="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <FormGroup>
-          <Label>Email address</Label>
-          <Input
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </FormGroup>
+          <div>
+            {/* <Label>Password</Label> */}
+            <Input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-        <FormGroup>
-          <Label>Password</Label>
-          <Input
-            type="password"
-            placeholder="Enter password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Button type="submit">Sign Up</Button>
-        </FormGroup>
-        <ForgotPassword>
-          Already registered? <a href="/loginPage">Login</a>
-        </ForgotPassword>
-      </Form>
-    </Container>
+        </form>
+        <Text>
+          Already registered? <Link href="/loginPage">Login</Link>
+        </Text>
+      </FormCard>
+    </Section>
   );
 }
 
