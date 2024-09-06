@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useGlobalContext } from "../../Context";
-import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../../Context.jsx";
 import { SwiperSlide } from "swiper/react";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -10,6 +9,7 @@ import "swiper/css/pagination";
 import {
   AppContainer,
   GlobalStyle,
+  HeaderHeroSection,
   HeroSection,
   MidSection,
   ThirdSection,
@@ -25,65 +25,89 @@ import {
   StyledButton,
   EventInfo,
   EventImage,
-} from "../../Components/styles/HomeStyles";
-
+  SearchContainer, // New styles
+  SearchInput,
+  SelectDropdown,
+} from "../../Components/styles/HomeStyles.js";
 export default function Home() {
   const { Events, isLoading, error } = useGlobalContext();
   const [visibleEventsCount, setVisibleEventsCount] = useState(5); // Initial count
-  const navigate = useNavigate();
-
+  // New state variables for search filters
+  const [searchText, setSearchText] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedTitle, setSelectedTitle] = useState("");
   // Handle loading state
   if (isLoading) return <div>Loading...</div>;
-
   // Handle error state
   if (error) return <div>Error: {error.message}</div>;
-
   // Ensure events is an array before calling .map
   if (!Events || Events.length === 0) {
     return <div>No events available</div>;
   }
-
+  // Sort events by date (assuming eventDate is in a sortable string format like "YYYY-MM-DD")
+  const sortedEvents = [...Events].sort(
+    (a, b) => new Date(a.eventDate) - new Date(b.eventDate)
+  );
+  // Filter events based on search text, category, and title
+  const filteredEvents = sortedEvents.filter((event) => {
+    const matchesSearchText = event.eventTitleEn
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
+    const matchesCategory = selectedCategory
+      ? event.eventNameCategoryEn === selectedCategory
+      : true;
+    const matchesTitle = selectedTitle
+      ? event.eventTitleEn === selectedTitle
+      : true;
+    return matchesSearchText && matchesCategory && matchesTitle;
+  });
+  // Get unique categories and titles for select dropdowns
+  const uniqueCategories = [
+    ...new Set(Events.map((event) => event.eventNameCategoryEn)),
+  ];
+  const uniqueTitles = [...new Set(Events.map((event) => event.eventTitleEn))];
   // Function to handle "View More Events" click
   const handleLoadMore = () => {
     setVisibleEventsCount((prevCount) => prevCount + 5); // Increase the count by 5
   };
-
-  // Function to handle "View Details" click
-  const handleViewDetails = (id) => {
-    navigate(`/event-details/${id}`);
-  };
-
   return (
     <AppContainer>
       <GlobalStyle />
       <HeroSection>
+        <HeaderHeroSection>
+          {" "}
+          <h2 className="be-title">Be My Guest</h2>
+          <h1 className="sep-title">Social Events Platform</h1>
+        </HeaderHeroSection>
         <StyledSwiper
           slidesPerView={1}
           loop={true}
+          autoplay={{ delay: 3000 }}
           pagination={{
             clickable: true,
             renderBullet: (index, className) => {
-              const totalSlides = Math.min(Events.length, visibleEventsCount);
+              const totalSlides = Math.min(
+                sortedEvents.length,
+                visibleEventsCount
+              );
               const groupSize = 5; // Number of bullets you want to show
-
               // Calculate start and end indices for the current group of bullets
               const startIndex = Math.floor(index / groupSize) * groupSize;
               const endIndex = Math.min(startIndex + groupSize, totalSlides);
-
               if (index >= startIndex && index < endIndex) {
                 return `<span class="${className}">${index + 1}</span>`;
               }
               return "";
             },
-            dynamicBullets: true,
-            dynamicMainBullets: 5,
+            dynamicBullets: true, // Enable dynamic bullets
+            dynamicMainBullets: 5, // Show 5 bullets at a time
           }}
           effect="fade"
           navigation={true}
-          modules={[EffectFade, Navigation, Pagination]}
+          modules={[EffectFade, Navigation, Pagination, Autoplay]}
           className="mySwiper"
         >
-          {Events.slice(0, visibleEventsCount).map((event) => (
+          {sortedEvents.slice(0, visibleEventsCount).map((event, index) => (
             <SwiperSlide key={event.id}>
               <SlideContent>
                 <TextContent>
@@ -99,16 +123,18 @@ export default function Home() {
                       {event.eventDate}
                     </span>
                     <span>
-                      <img src="/eventImages/time-left.png" alt="icon-time" />
+                      <img
+                        src="/eventImages/time-left.png"
+                        Corrected
+                        path
+                        alt="icon-time"
+                      />
                       {event.eventHour}
                     </span>
                   </EventDetails>
                   <ButtonGroup>
                     <StyledButton className="primary">Join Event</StyledButton>
-                    <StyledButton
-                      className="secondary"
-                      onClick={() => handleViewDetails(event.id)}
-                    >
+                    <StyledButton className="secondary">
                       More details
                     </StyledButton>
                   </ButtonGroup>
@@ -125,7 +151,6 @@ export default function Home() {
           ))}
         </StyledSwiper>
       </HeroSection>
-
       <MidSection>
         <h4>
           A social meeting platform <br />
@@ -134,15 +159,45 @@ export default function Home() {
           already exists in the App.
         </h4>
       </MidSection>
-
       <ThirdSection>
         <h1>Featured Upcoming Events</h1>
         <h6>
           You are free to choose from the Event list <br /> The event that draws
           you in to discover, explore, and engage.
         </h6>
+        {/* Search and filter functionality */}
+        <SearchContainer>
+          <SearchInput
+            type="text"
+            placeholder="Search by event title..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <SelectDropdown
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="">All Categories</option>
+            {[...uniqueCategories].sort().map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </SelectDropdown>
+          <SelectDropdown
+            value={selectedTitle}
+            onChange={(e) => setSelectedTitle(e.target.value)}
+          >
+            <option value="">All Titles</option>
+            {[...uniqueTitles].sort().map((title, index) => (
+              <option key={index} value={title}>
+                {title}
+              </option>
+            ))}
+          </SelectDropdown>
+        </SearchContainer>
         <UpcomingEventsContainers>
-          {Events.slice(0, visibleEventsCount).map((event) => (
+          {filteredEvents.slice(0, visibleEventsCount).map((event) => (
             <UpcomingEvent key={event.id}>
               <EventInfo>
                 <h3>{event.eventTitleEn}</h3>
@@ -163,12 +218,7 @@ export default function Home() {
                 <div className="event-description">
                   {event.eventDescriptionEn}
                 </div>
-                <button
-                  className="view-details-button"
-                  onClick={() => handleViewDetails(event.id)}
-                >
-                  View Details
-                </button>
+                <button className="view-details-button">View Details</button>
               </EventInfo>
               <EventImage>
                 <img
@@ -180,12 +230,12 @@ export default function Home() {
             </UpcomingEvent>
           ))}
         </UpcomingEventsContainers>
+        {visibleEventsCount < filteredEvents.length && (
+          <StyledButton className="third" onClick={handleLoadMore}>
+            View More Events
+          </StyledButton>
+        )}
       </ThirdSection>
-      {visibleEventsCount < Events.length && (
-        <StyledButton className="third" onClick={handleLoadMore}>
-          View More Events
-        </StyledButton>
-      )}
     </AppContainer>
   );
 }
