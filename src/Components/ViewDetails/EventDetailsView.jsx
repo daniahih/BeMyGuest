@@ -14,7 +14,7 @@ const Modal = ({ isOpen, onClose, title, content }) => {
         <h2 className="modal-title">{title}</h2>
         <p className="modal-body">{content}</p>
         <button className="modal-close" onClick={onClose}>
-          &times; Close
+          &times;
         </button>
       </div>
     </div>
@@ -104,25 +104,13 @@ const EventDetailsView = () => {
             className="button button-blue"
             onClick={() =>
               openModal(
-                "What Should I Wear for This Event?",
-                "Appropriate clothing suggestions go here."
+                "What Should I Bring to This Event?",
+                event.eventWhatToBringEn || "No information available"
               )
             }
           >
-            What Should I Wear for This Event?
+            What Should I Bring to This Event?
           </button>
-          <button
-            className="button button-green"
-            onClick={() =>
-              openModal(
-                "What is the Best Gift for This Event?",
-                "Gift suggestions go here."
-              )
-            }
-          >
-            What is the Best Gift for This Event?
-          </button>
-          <button className="button button-join">Join Event</button>
         </div>
       </div>
 
