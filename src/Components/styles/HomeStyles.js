@@ -20,7 +20,7 @@ export const HeroSection = styled.section`
   height: 100vh;
   padding: 8rem 0;
   margin: 0 auto;
-  background-image: url("/public/HeroSectionImg.png");
+  background-image: url("/eventImages/HeroSectionImg.png");
   background-color: #e8dbdb;
   background-size: contain;
   background-position: center;

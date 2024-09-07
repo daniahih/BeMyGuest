@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGlobalContext } from "../../Context.jsx";
 import { SwiperSlide } from "swiper/react";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -25,29 +26,31 @@ import {
   StyledButton,
   EventInfo,
   EventImage,
-  SearchContainer, // New styles
+  SearchContainer,
   SearchInput,
   SelectDropdown,
 } from "../../Components/styles/HomeStyles.js";
+
 export default function Home() {
   const { Events, isLoading, error } = useGlobalContext();
-  const [visibleEventsCount, setVisibleEventsCount] = useState(5); // Initial count
-  // New state variables for search filters
+  const [visibleEventsCount, setVisibleEventsCount] = useState(5);
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedTitle, setSelectedTitle] = useState("");
-  // Handle loading state
+
+  const navigate = useNavigate(); // useNavigate hook
+
   if (isLoading) return <div>Loading...</div>;
-  // Handle error state
   if (error) return <div>Error: {error.message}</div>;
-  // Ensure events is an array before calling .map
   if (!Events || Events.length === 0) {
     return <div>No events available</div>;
   }
-  // Sort events by date (assuming eventDate is in a sortable string format like "YYYY-MM-DD")
+
+  // Sort events by date
   const sortedEvents = [...Events].sort(
     (a, b) => new Date(a.eventDate) - new Date(b.eventDate)
   );
+
   // Filter events based on search text, category, and title
   const filteredEvents = sortedEvents.filter((event) => {
     const matchesSearchText = event.eventTitleEn
@@ -61,21 +64,21 @@ export default function Home() {
       : true;
     return matchesSearchText && matchesCategory && matchesTitle;
   });
-  // Get unique categories and titles for select dropdowns
+
   const uniqueCategories = [
     ...new Set(Events.map((event) => event.eventNameCategoryEn)),
   ];
   const uniqueTitles = [...new Set(Events.map((event) => event.eventTitleEn))];
-  // Function to handle "View More Events" click
+
   const handleLoadMore = () => {
-    setVisibleEventsCount((prevCount) => prevCount + 5); // Increase the count by 5
+    setVisibleEventsCount((prevCount) => prevCount + 5);
   };
+
   return (
     <AppContainer>
       <GlobalStyle />
       <HeroSection>
         <HeaderHeroSection>
-          {" "}
           <h2 className="be-title">Be My Guest</h2>
           <h1 className="sep-title">Social Events Platform</h1>
         </HeaderHeroSection>
@@ -90,8 +93,7 @@ export default function Home() {
                 sortedEvents.length,
                 visibleEventsCount
               );
-              const groupSize = 5; // Number of bullets you want to show
-              // Calculate start and end indices for the current group of bullets
+              const groupSize = 5;
               const startIndex = Math.floor(index / groupSize) * groupSize;
               const endIndex = Math.min(startIndex + groupSize, totalSlides);
               if (index >= startIndex && index < endIndex) {
@@ -99,8 +101,8 @@ export default function Home() {
               }
               return "";
             },
-            dynamicBullets: true, // Enable dynamic bullets
-            dynamicMainBullets: 5, // Show 5 bullets at a time
+            dynamicBullets: true,
+            dynamicMainBullets: 5,
           }}
           effect="fade"
           navigation={true}
@@ -123,18 +125,19 @@ export default function Home() {
                       {event.eventDate}
                     </span>
                     <span>
-                      <img
-                        src="/eventImages/time-left.png"
-                        Corrected
-                        path
-                        alt="icon-time"
-                      />
+                      <img src="/eventImages/time-left.png" alt="icon-time" />
                       {event.eventHour}
                     </span>
                   </EventDetails>
                   <ButtonGroup>
                     <StyledButton className="primary">Join Event</StyledButton>
-                    <StyledButton className="secondary">
+                    <StyledButton
+                      className="secondary"
+                      onClick={() => {
+                        console.log("Navigating to:", event.id); // Debugging event ID
+                        navigate(`/event-details/${event.id}`);
+                      }}
+                    >
                       More details
                     </StyledButton>
                   </ButtonGroup>
@@ -151,6 +154,7 @@ export default function Home() {
           ))}
         </StyledSwiper>
       </HeroSection>
+
       <MidSection>
         <h4>
           A social meeting platform <br />
@@ -159,12 +163,14 @@ export default function Home() {
           already exists in the App.
         </h4>
       </MidSection>
+
       <ThirdSection>
         <h1>Featured Upcoming Events</h1>
         <h6>
           You are free to choose from the Event list <br /> The event that draws
           you in to discover, explore, and engage.
         </h6>
+
         {/* Search and filter functionality */}
         <SearchContainer>
           <SearchInput
@@ -196,6 +202,7 @@ export default function Home() {
             ))}
           </SelectDropdown>
         </SearchContainer>
+
         <UpcomingEventsContainers>
           {filteredEvents.slice(0, visibleEventsCount).map((event) => (
             <UpcomingEvent key={event.id}>
@@ -218,7 +225,15 @@ export default function Home() {
                 <div className="event-description">
                   {event.eventDescriptionEn}
                 </div>
-                <button className="view-details-button">View Details</button>
+                <button
+                  className="view-details-button"
+                  onClick={() => {
+                    console.log("Navigating to:", event.id); // Debugging event ID
+                    navigate(`/event-details/${event.id}`);
+                  }}
+                >
+                  View Details
+                </button>
               </EventInfo>
               <EventImage>
                 <img
@@ -230,6 +245,7 @@ export default function Home() {
             </UpcomingEvent>
           ))}
         </UpcomingEventsContainers>
+
         {visibleEventsCount < filteredEvents.length && (
           <StyledButton className="third" onClick={handleLoadMore}>
             View More Events

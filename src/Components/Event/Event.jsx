@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes, ThemeProvider } from "styled-components";
 import { useGlobalContext } from "/src/Context.jsx"; // Correct import
+import { useNavigate } from "react-router-dom"; // Import the useNavigate hook
 
 // Keyframe animations for the effects
 const popIn = keyframes`
@@ -172,12 +173,17 @@ const Theme = {
 
 export default function Event() {
   const { Events, isLoading, error } = useGlobalContext(); // Fetching events from context
+  const navigate = useNavigate(); // Initialize useNavigate hook for navigation
 
   // Handle loading state
   if (isLoading) return <div>Loading...</div>;
 
   // Handle error state
   if (error) return <div>Error: {error.message}</div>;
+
+  const handleViewDetails = (eventId) => {
+    navigate(`/event-details/${eventId}`); // Navigate to event details page with event ID
+  };
 
   return (
     <ThemeProvider theme={Theme}>
@@ -189,15 +195,15 @@ export default function Event() {
                 <h3 className="event-title">{event.eventTitleEn}</h3>
                 <p className="event-category">{event.eventNameCategoryEn}</p>
                 <p className="event-place">
-                  <img src="../../../public/eventImages/gps.png" alt="" />
+                  <img src="/eventImages/gps.png" alt="" />
                   {event.eventPlaceEn}
                 </p>
                 <p className="event-hour">
-                  <img src="../../../public/eventImages/time-left.png" alt="" />
+                  <img src="/eventImages/time-left.png" alt="" />
                   {event.eventHour}
                 </p>
                 <p className="event-date">
-                  <img src="../../../public/eventImages/calendar.png" alt="" />
+                  <img src="/eventImages/calendar.png" alt="" />
                   {event.eventDate}
                 </p>
                 <ul className="event-description">
@@ -207,7 +213,12 @@ export default function Event() {
                     </p>
                   ))}
                 </ul>
-                <button className="button">View details</button>
+                <button
+                  className="button"
+                  onClick={() => handleViewDetails(event.id)} // Call handleViewDetails with event ID
+                >
+                  View details
+                </button>
               </div>
               <EventImageContainer>
                 <img
