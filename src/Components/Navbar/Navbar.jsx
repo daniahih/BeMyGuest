@@ -27,22 +27,22 @@ const Navbar = () => {
       </div>
       <ul className="navbar-links">
         <li>
-          <Link to="/">HOME</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/all-events">ALL - EVENTS</Link>
+          <Link to="/all-events">All-Event</Link>
         </li>
         <li>
-          <Link to="/about">ABOUT - US</Link>
+          <Link to="/about">About-Us</Link>
         </li>
         {isLoggedIn ? (
           <li>
-            <Link to="/profile">PROFILE</Link>
+            <Link to="/profile">Profile</Link>
           </li>
         ) : (
           <li>
             <Link className="LoginPage" to="/loginPage">
-              LOGIN
+              Login
             </Link>
           </li>
         )}

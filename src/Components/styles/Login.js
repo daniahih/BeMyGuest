@@ -108,7 +108,7 @@ export const ImageSection = styled.div`
   width: 100%;
   height: 100%;
   /* background-image: url("https://www.gingerray.co.uk/static/cms/media/Mobile-Banner%20-%20Pink%20Mix.jpg"); */
-  background-color: #182644;
+  // background-color: #e8dbdb;
   background-size: cover;
 
   background-position: center;

@@ -5,7 +5,7 @@ export const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
+  // background-image: url("https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp");
   background-size: cover;
   background-position: center;
   position: relative;
@@ -16,11 +16,7 @@ export const Section = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-      to right,
-      rgba(132, 250, 176, 0.5),
-      rgba(143, 211, 244, 0.5)
-    );
+    // background: linear-gradient(to right, #e8dbdb);
   }
 `;
 
