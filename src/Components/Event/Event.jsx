@@ -195,15 +195,15 @@ export default function Event() {
                 <h3 className="event-title">{event.eventTitleEn}</h3>
                 <p className="event-category">{event.eventNameCategoryEn}</p>
                 <p className="event-place">
-                  <img src="../../../public/eventImages/gps.png" alt="" />
+                  <img src="/eventImages/gps.png" alt="" />
                   {event.eventPlaceEn}
                 </p>
                 <p className="event-hour">
-                  <img src="../../../public/eventImages/time-left.png" alt="" />
+                  <img src="/eventImages/time-left.png" alt="" />
                   {event.eventHour}
                 </p>
                 <p className="event-date">
-                  <img src="../../../public/eventImages/calendar.png" alt="" />
+                  <img src="/eventImages/calendar.png" alt="" />
                   {event.eventDate}
                 </p>
                 <ul className="event-description">
