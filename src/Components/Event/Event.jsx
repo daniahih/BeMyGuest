@@ -62,6 +62,7 @@ const EventCardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
+  width: 100%;
   padding-top: 6rem;
   z-index: -1;
 `;
@@ -139,21 +140,22 @@ const EventCard = styled.div`
   }
 `;
 
-// Event image styling
+// Updated Event image styling with larger size
 const EventImageContainer = styled.div`
   flex-shrink: 0;
-  width: 200px;
+  width: 300px; // Increased width
+  height: 200px; // Set height to maintain a bigger size and aspect ratio
   img {
-    width: 200px;
+    width: 100%;
     height: 100%;
     border-radius: 0 8px 8px 0;
-    object-fit: cover;
+    object-fit: cover; // Ensures the image fills the container while keeping the aspect ratio
     margin: 0;
     transition: transform 0.3s ease-in-out;
   }
 
   ${EventCard}:hover & img {
-    transform: scale(1.05);
+    transform: scale(1.05); // Keep the hover effect for zooming in
   }
 `;
 
