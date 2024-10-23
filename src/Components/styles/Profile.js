@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh; /* Use min-height for better responsiveness */
-  background-color: #9de2ff;
+
   display: flex;
   justify-content: center;
   align-items: center;

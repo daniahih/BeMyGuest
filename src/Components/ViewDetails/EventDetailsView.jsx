@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { db } from "../../firebase_setup/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import "./styles.css";
-import { FaLocationDot } from 'react-icons/fa6';
-import { IoIosTime } from 'react-icons/io';
-import { MdDateRange } from 'react-icons/md';
+import { FaLocationDot } from "react-icons/fa6";
+import { IoIosTime } from "react-icons/io";
+import { MdDateRange } from "react-icons/md";
 
 // Modal Component
 const Modal = ({ isOpen, onClose, title, content }) => {
@@ -81,63 +81,77 @@ const EventDetailsView = () => {
         &lt; Back to Events
       </button>
       <div className="event-card-content">
-        <h1 className="event-title">{event.eventTitleEn || "No title available"}</h1>
-    <div className="image-description">
-        <img className="event-image"
-          src={event.eventImage || "/default-image.png"}
-          alt={event.eventTitleEn || "Event Image"}
-          style={event.eventImgStyle || {}}
-        />
-        <div className="event-description-block">
-          <p>
-            <strong>Description: </strong>
-            {event.eventDescriptionEn || "Description not available"}
-          </p>
-        </div>
-   </div>
-
-    <div className="newone">
-        <div className="event-info-block">
-          <p>
-            <strong><MdDateRange className="icon" />Date: </strong> {event.eventDate || "Date not available"}
-          </p>
-          <p>
-            <strong><FaLocationDot className="icon" />Location: </strong> {event.eventPlaceEn || "Location not available"}
-          </p>
-          <p>
-            <strong><IoIosTime className="icon" />Time: </strong> {event.eventHour || "Time not available"}
-          </p>
+        <h1 className="event-title">
+          {event.eventTitleEn || "No title available"}
+        </h1>
+        <div className="image-description">
+          <img
+            className="event-image"
+            src={event.eventImage || "/default-image.png"}
+            alt={event.eventTitleEn || "Event Image"}
+            style={event.eventImgStyle || {}}
+          />
+          <div className="event-description-block">
+            <p>
+              <strong>Description: </strong>
+              {event.eventDescriptionEn || "Description not available"}
+            </p>
+          </div>
         </div>
 
-       
+        <div className="newone">
+          <div className="event-info-block">
+            <p>
+              <strong>
+                <MdDateRange className="icon" />
+                Date:{" "}
+              </strong>{" "}
+              {event.eventDate || "Date not available"}
+            </p>
+            <p>
+              <strong>
+                <FaLocationDot className="icon" />
+                Location:{" "}
+              </strong>{" "}
+              {event.eventPlaceEn || "Location not available"}
+            </p>
+            <p>
+              <strong>
+                <IoIosTime className="icon" />
+                Time:{" "}
+              </strong>{" "}
+              {event.eventHour || "Time not available"}
+            </p>
+          </div>
 
-        <div className="event-details-actions">
-          <button
-            className="btn btn-primary"
-            onClick={() =>
-              openModal(
-                "What Should I Wear for This Event?",
-                event.eventGiftEn 
-              )
-            }
-          >
-            What Should I Wear for This Event?
-          </button>
-          <button
-            className="btn btn-success"
-            onClick={() =>
-              openModal(
-                "What is the Best Gift for This Event?",
-                event.eventClothesEn
-              )
-            }
-          >
-            What is the Best Gift for This Event?
-          </button>
-          <button className="btn btn-highlight">Join Event</button>
+          <div className="event-details-actions">
+            <button
+              className="btn btn-primary"
+              onClick={() =>
+                openModal(
+                  "What Should I Wear for This Event?",
+                  event.eventClothesEn // Fixed: Clothes information
+                )
+              }
+            >
+              What Should I Wear for This Event?
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={() =>
+                openModal(
+                  "What is the Best Gift for This Event?",
+                  event.eventGiftEn // Fixed: Gift information
+                )
+              }
+            >
+              What is the Best Gift for This Event?
+            </button>
+            <button className="btn btn-highlight">Join Event</button>
+          </div>
         </div>
       </div>
-</div>
+
       {/* Modal */}
       <Modal
         isOpen={modalInfo.isOpen}
