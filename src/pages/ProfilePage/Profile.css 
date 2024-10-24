@@ -1,0 +1,51 @@
+.joined-events-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.joined-event-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.event-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.event-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.event-actions .btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
